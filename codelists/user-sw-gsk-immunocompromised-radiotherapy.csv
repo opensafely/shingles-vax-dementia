@@ -1,0 +1,293 @@
+code,term
+10492003,Radionuclide therapy for glandular suppression
+1051341000000103,Radioimmunoguided surgery
+10611004,External beam radiation therapy using protons
+108290001,Radiation oncology AND/OR radiotherapy
+1103661000000108,Radioligand therapy using lutetium (177-Lu) labeled somatostatin analog
+113117004,External beam radiation therapy particulate radiation
+11331000224100,Tomotherapy
+1148692008,Radiation therapy following chemotherapy
+1149431000000106,Intraoperative electron radiotherapy
+1156505006,External beam radiation therapy using carbon ions
+1156506007,External beam radiation therapy using photons
+1156524009,Intensity modulated external beam neutron radiation therapy
+1156525005,Mixed beam external beam radiation therapy
+1156526006,Two dimensional external beam radiation therapy
+1156528007,External beam radiation therapy using particle spot scanning technique
+1156529004,External beam radiation therapy using particle passive scattering technique
+1156530009,Volumetric modulated arc therapy
+115959002,Stereotactic radiosurgery
+115960007,Total skin electron beam therapy
+1162782007,Three dimensional external beam radiation therapy
+1163157007,Ultra high dose rate radiotherapy
+118640001,Radioimmunotherapy
+1204242009,External beam radiation therapy using particle scanning technique
+1255359001,Fractionated dose stereotactic radiation therapy
+1263392007,Extracorporeal irradiation of tumor bearing bone and reimplantation
+1263784000,Radioligand therapy using lutetium (177-Lu) vipivotide tetraxetan
+1264389002,Radiation therapy to oral cavity
+1269317006,Radiotherapy to urinary bladder
+1286801002,Real time neoplasm tracking external beam radiotherapy
+1286802009,External beam radiotherapy using internal target volume approach
+1287682002,Intraoperative external beam radiation therapy using electrons for malignant neoplasm of cecum and/or colon and/or rectum
+1287742003,Radiotherapy
+1297069006,Fractionated dose radiotherapy
+1297350006,Surface guided radiation therapy
+1304313004,External beam radiation therapy with robotic radiation delivery system
+1332089004,External beam radiation therapy using electromagnetic transponder real time tumor tracking
+1335864002,Imaging guided radiotherapy using fiducial marker target localization
+145724003,Radiotherapy started
+145725002,Radiotherapy changed
+16554781000119103,Intravenous radionuclide therapy using strontium 89
+16554931000119102,Intravenous radionuclide therapy using radium 223 dichloride
+168519005,Purpose of radiotherapy
+168520004,Radiotherapy for immunosuppression
+168521000,Radiotherapy to hematological system
+168522007,Radiotherapy to lymphoreticular system
+168523002,Preoperative course of radiotherapy
+168524008,Radiotherapy - intraoperative control
+168525009,Postoperative course of radiotherapy
+168526005,Radiotherapy for analgesia
+168527001,Radiotherapy for inflammation
+168528006,Palliative course of radiotherapy
+168529003,Radiotherapy purpose - NOS
+168531007,Radiotherapy started
+168532000,Radiotherapy changed
+169291001,X-ray beam therapy
+169292008,Grenz ray therapy up to 10 kV
+169293003,Superficial X-ray therapy 10-60 kV
+169294009,Half-deep therapy 60-150 kV
+169295005,Deep X-ray therapy 150-400 kV
+169296006,Ultrahard X-rays 400-2000 kV
+169297002,Short distance X-ray therapy
+169298007,Intracavitary X-ray therapy
+169299004,Combined X-ray therapy
+169300007,X-ray beam therapy NOS
+169301006,High-energy beam therapy
+169302004,Linear accelerator photon therapy
+169303009,Betatron photon therapy
+169304003,Van der Graaff photon therapy
+169305002,Combined photon therapy
+169306001,High-energy beam therapy NOS
+169307005,Fast-electron therapy
+169309008,Linear accelerator electrons
+169310003,Betatron electron therapy
+169311004,Positron therapy
+169312006,Combined fast-electron therapy
+169313001,Fast-electron therapy NOS
+169314007,Proton therapy
+169315008,Deuteron therapy
+169316009,Pi-meson therapy
+169317000,Neutron capture therapy
+169318005,Fast neutron therapy
+169319002,Combined heavy particle therapy
+169320008,Heavy particle therapy NOS
+169321007,Gamma ray and intermediate distance curietherapy
+169322000,Gamma-ray telecurie therapy
+169324004,Combined teletherapy and intermediate distance curietherapy
+169325003,Distant gamma therapy NOS
+169331000,Combined radiotherapy
+169332007,External beam radiation therapy with internal radiotherapy
+169333002,Preoperative external beam radiotherapy
+169334008,Postoperative external beam radiotherapy
+169335009,External beam radiotherapy with surgery and chemotherapy
+169336005,External beam radiation therapy with chemotherapy
+169337001,Combined radiotherapy NOS
+169338006,External radiotherapy NOS
+169397004,Radiochemotherapy by local infiltration
+169398009,Radiochemotherapy: to stop spread
+169399001,Radiochemotherapy via oral route
+169400008,Radiochemotherapy via intravenous route
+169401007,Radiochemotherapy for immunosuppression
+169402000,Intraarterial radiochemotherapy
+169403005,Intracavitary radiochemotherapy
+169404004,Radiochemotherapy NOS
+169405003,Other radiotherapy miscellaneous
+169407006,Radiosensitizing measure
+169415009,Other radiotherapy NOS
+171809001,Radiotherapy to lesion of peripheral nerve
+172286002,Radiotherapy to lacrimal gland
+172408001,Radiotherapy of corneal lesion
+182672000,Radiation/phototherapy NOS
+183971003,Radiotherapy treatment groups
+1955941000000108,Proton beam therapy of prostate
+222771000000107,Stereotactic radiosurgery
+226671000000104,Stereotactic radiosurgery on tissue of brain
+22741000087109,Accelerated partial breast irradiation
+228660009,Contact therapy
+228661008,Grenz ray therapy
+228662001,Betatron X-ray therapy
+228663006,Microtron X-ray therapy
+228664000,Van der Graaff X-ray therapy
+228666003,External beam radiation therapy with dual headed cobalt unit
+228667007,Stereotactic cobalt external beam radiation therapy
+228671005,Linear accelerator electron external beam radiation therapy
+228672003,Microtron electron external beam radiation therapy
+228673008,Strontium 90 electron external beam radiation therapy
+228674002,Cyclotron neutron external beam radiation therapy
+228675001,Deuterium on tritium neutron external beam radiation therapy
+228676000,Hiletron neutron external beam radiation therapy
+230121000000105,External beam radiotherapy to lesion of retina
+230911008,Stereotactic radiosurgery of lesion of intracranial vasculature
+230912001,Stereotactic radiosurgery of intracranial arteriovenous malformation
+230913006,Stereotactic radiosurgery of intracranial venous malformation
+230914000,Stereotactic radiosurgery of intracranial cavernous angioma
+231544004,Radiotherapy to orbital lesion
+231568007,Radiotherapy to lesion of medial canthus
+231585009,Radiotherapy to lesion of lateral canthus
+231596001,Radiotherapy to lesion of eyelid
+231711000000108,Radiotherapy delivery
+231737005,Radiotherapy to ciliary body
+231764006,Radiotherapy to retina
+232251000000107,Radiotherapy procedures NOS
+232261000000105,Other specified radiotherapy procedures
+236221000000103,Delivery of a fraction of total body irradiation
+236231000000101,Delivery of a fraction of intracavitary radiotherapy
+236241000000105,Radiotherapy delivery NOS
+236271000000104,Other specified radiotherapy preparation
+236301000000101,Other specified radiotherapy volume definition
+236441000000109,Delivery of a fraction of radiotherapy on a superficial or orthovoltage machine
+236461000000105,Delivery of a fraction of complex radiotherapy on a megavoltage machine
+238041000000102,Delivery of a fraction of interstitial radiotherapy
+238051000000104,Delivery of a fraction of simple radiotherapy on a megavoltage machine
+238061000000101,Other specified radiotherapy delivery
+253331000000101,Stereotactic radiosurgery on tissue of brain 
+254391000000102,External beam radiotherapy to lesion of retina 
+267551000000102,Other specified radiotherapy volume definition
+267611000000102,Other specified radiotherapy preparation
+267631000000105,Radiotherapy delivery 
+267641000000101,Delivery of a fraction of total body irradiation (TBI) 
+267651000000103,Delivery of a fraction of intracavitary radiotherapy 
+267661000000100,Delivery of a fraction of interstitial radiotherapy 
+267671000000107,Other specified radiotherapy delivery 
+267681000000109,Radiotherapy delivery NOS 
+268401000000103,Radiotherapy procedures 
+268411000000101,Delivery of a fraction of complex radiotherapy on a megavoltage machine 
+268421000000107,Delivery of a fraction of simple radiotherapy on a megavoltage machine 
+268431000000109,Delivery of a fraction of radiotherapy on a superficial or orthovoltage machine 
+268441000000100,Other specified radiotherapy procedures 
+268451000000102,Radiotherapy procedures NOS 
+284461000000106,Delivery of a fraction of external beam radiotherapy NEC
+284701000000103,Oral delivery of radiotherapy for thyroid ablation
+291391000000108,Delivery of a fraction of external beam radiotherapy NEC
+291401000000106,Oral delivery of radiotherapy for thyroid ablation
+29860002,Intravascular radionuclide therapy
+300976007,Radiotherapy to lesion of canthus
+305941000000108,Radiotherapy to perineum
+305951000000106,Radiotherapy to abdomen
+305961000000109,Radiotherapy to neck
+305971000000102,Radiotherapy to chest wall
+306011000000102,Radiotherapy to axilla
+306021000000108,Radiotherapy to breast
+306031000000105,Radiotherapy to head
+306041000000101,Radiotherapy to pelvis
+306201000000107,Radiotherapy by body site
+312248006,Heavy ion external beam radiation therapy
+314604005,Palliative course of deep X-ray therapy
+314605006,Preoperative course of deep X-ray therapy
+314606007,Postoperative course of deep X-ray therapy
+31632008,Stereotactic focused proton beam on cerebrum
+327471000000108,Radionuclide rhenium 186 hydroxyethylidene diphosphonate therapy
+33195004,External beam radiation therapy procedure
+33356009,Betatron external beam radiation therapy
+359549004,Irradiation
+36679009,Vaginal cone irradiation
+380021000000105,Megavoltage treatment for adaptive radiotherapy
+380031000000107,Megavoltage treatment for simple radiotherapy
+380041000000103,Megavoltage treatment for complex radiotherapy
+380051000000100,Superficial or orthovoltage treatment for radiotherapy
+38104006,External beam radiation therapy by linear accelerator
+394934009,Combined preoperative chemotherapy and radiotherapy
+394935005,Combined postoperative chemotherapy and radiotherapy
+395096001,Stereotactic radiotherapy
+39646005,Hemibody irradiation
+396780003,Chemotherapy AND/OR radiation therapy prior to lymphadenectomy
+426332009,External beam radiation therapy to lesion of retina
+427541000119103,Intravenous radionuclide therapy
+427561000119104,Intravenous radionuclide therapy using samarium Sm 153 lexidronam
+428412000,Radiotherapy to head
+428416002,Radiotherapy to neck
+428624002,Radiotherapy to chest wall
+428829005,Radiotherapy to pelvis
+428831001,Radiotherapy to perineum
+428923005,Radiotherapy to breast
+429579007,Radiotherapy to axilla
+429584001,Stereotactic radiosurgery of cerebrum
+429685005,Radiotherapy by body site
+429774000,Radiotherapy to abdomen
+43111005,Destruction of lesion of retina by implantation of radiation source
+433224001,Radionuclide rhenium 186 hydroxyethylidene diphosphonate therapy
+441783000,Three-dimensional conformal radiation therapy
+441799006,Intensity modulated radiation therapy
+445232009,Boost radiation therapy
+446504008,Stereotactic destruction of lesion using gamma radiation
+447704003,Single dose stereotactic radiosurgery using linear accelerator system
+447912004,Fractionated dose stereotactic radiosurgery using linear accelerator system
+448294009,External radiation therapy using superficial radiation
+448385000,Megavoltage radiation therapy using photons
+448461009,Stereotactic radiation therapy using megavoltage radiation
+449290006,Megavoltage radiation therapy using photons and electrons
+45643008,External beam radiation therapy using electrons
+46044009,Megavoltage radiation therapy
+473237008,Stereotactic radiosurgery for acoustic neuroma
+47479005,Total body irradiation
+490441000000100,Megavoltage treatment for complex radiotherapy 
+490451000000102,Megavoltage treatment for simple radiotherapy 
+490461000000104,Superficial or orthovoltage treatment for radiotherapy 
+490471000000106,Megavoltage treatment for adaptive radiotherapy 
+50080181000188101,Brachytherapy of bone
+50080191000188103,External beam radiation therapy of bone
+50080231000188105,Radiotherapy to face
+50632006,Cyclotron external beam radiation therapy
+5304008,"Deep radiation therapy, 200-300 KVP"
+533191000000105,Combined radiotherapy NOS
+533201000000107,External radiotherapy NOS
+53373004,"Superficial teletherapy procedure, Grenz type"
+53438000,Radiation therapy procedure or service
+536181000000101,X-ray beam therapy NOS
+536191000000104,High-energy beam therapy NOS
+536211000000100,Fast-electron therapy NOS
+536221000000106,Heavy particle therapy NOS
+536231000000108,Distant gamma therapy NOS
+560611000000108,Radiation/phototherapy NOS
+562571000000100,Radiotherapy purpose - NOS
+562601000000107,Radiochemotherapy NOS
+562641000000105,Other radiotherapy NOS
+575551000000108,Infrared therapy NOS
+576591000000109,Other radiotherapy miscellaneous
+589631000119102,Intravenous radioimmunotherapy using monoclonal antibodies
+62867004,External beam radiation therapy with radioactive cesium
+63506005,Destruction of lesion of choroid by radiation therapy
+64134004,Stereotactic focused gamma radiosurgery of cerebrum
+64522003,Destruction of chorioretinal lesion by implantation of radiation source
+64978007,Radionuclide therapy for hyperthyroidism
+65952009,Gamma ray therapy
+69568002,Oral radiation
+703423002,Combined chemotherapy and radiation therapy
+711299007,Radiotherapy to thorax
+712746000,Total body electron beam therapy
+714029009,Preoperative high dose brachytherapy
+721031000124102,External beam radiotherapy without respiratory motion management
+721051000124109,External beam radiotherapy with breath hold
+721061000124106,External beam radiotherapy with respiratory gating
+721071000124104,External beam radiotherapy with free breathing
+721081000124101,External beam radiotherapy with abdominal compression
+726549007,Radioimmunoguided surgery
+74023000,External beam radiation therapy of 1 to 25 mega electronvolt protons
+77613002,External beam radiation therapy with iodine-125
+78110003,Destruction of lesion of choroid by implantation of radiation source
+782204001,Superficial radiation therapy
+785706005,Hypofractionated radiation therapy of prostate
+785707001,Hypofractionated radiation therapy of entire breast
+794511000000101,Radionuclide lutetium 177 somatostatin analogue therapy
+80347004,External beam radiation therapy neutrons
+83794005,Extracorporeal photopheresis
+85257004,Destruction of chorioretinal lesion by radiation therapy
+853301000000101,Stereotactic focused gamma radiosurgery of trigeminal nerve
+869901000000105,Retroorbital radiotherapy
+870385001,Hypofractionated radiation therapy
+879915007,Radiotherapy to bone
+895121000000103,Hypofractionated stereotactic radiotherapy using megavoltage radiation
+895131000000101,Hypofractionated stereotactic radiotherapy using megavoltage radiation 
+916171000000104,Radiotherapy
+921401000000101,Preoperative high dose brachytherapy
