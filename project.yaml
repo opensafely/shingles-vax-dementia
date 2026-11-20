@@ -1,8 +1,22 @@
 version: '5.0'
 
 actions:
-  generate_dataset:
-    run: ehrql:v1 generate-dataset analysis/dataset_definition.py --output output/dataset.csv.gz
+  generate_dataset_20260831:
+    run: ehrql:v1 generate-dataset analysis/dataset_generation/dataset_definition.py 
+      --output output/dataset_20260831.csv.gz -- --end_date 2026-08-31
     outputs:
       highly_sensitive:
-        dataset: output/dataset.csv.gz
+        dataset: output/dataset_20260831.csv.gz
+
+  incidence_20260831:
+    run: r:v3 analysis/model/sample_size_incidence.R 
+      --nation England --data output/dataset_20260831.csv.gz --out output/20260831/sample_size_incidence/
+    needs:
+    - generate_dataset_20260831
+    outputs:
+      moderately_sensitive:
+        results1: output/20260831/sample_size_incidence/sample_size_cohort.csv
+        results2: output/20260831/sample_size_incidence/sample_size_incidence.csv
+        results3: output/20260831/sample_size_incidence/log.txt
+        results4: output/20260831/sample_size_incidence/session_info.txt
+        
