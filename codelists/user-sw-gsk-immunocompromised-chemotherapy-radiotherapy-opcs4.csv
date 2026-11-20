@@ -1,0 +1,19 @@
+code,term
+X352,Intravenous chemotherapy
+X373,Intramuscular chemotherapy
+X384,Subcutaneous chemotherapy
+X70,Procurement of drugs for chemotherapy for neoplasm Bands 1-5
+X71,Procurement of drugs for chemotherapy for neoplasm Bands 6-10
+X72,Delivery of chemotherapy for neoplasm
+X73,Delivery of oral chemotherapy for neoplasm
+X74,Chemotherapy Drugs Other
+Y123,Electroporation Lesion with Chemotherapy NOC
+X65,Radiotherapy delivery
+X69,Other radiotherapy delivery
+X57,Preparation for Radiotherapy Other
+X67,Preparation for external beam radiotherapy
+X68,Preparation for brachytherapy
+X89,Brachytherapy
+Y91,External beam radiotherapy
+Y902,Radiotherapy NEC
+O44,Other external beam radiotherapy

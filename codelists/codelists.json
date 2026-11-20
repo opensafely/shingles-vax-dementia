@@ -6,11 +6,11 @@
       "downloaded_at": "2026-10-01 14:05:41.892783+00:00Z",
       "sha": "d95a2f826299563aa57f6fa99009e6e13a65151b"
     },
-    "user-sw-gsk_shingles_vax_snomed.csv": {
-      "id": "user/sw/gsk_shingles_vax_snomed/72861002",
-      "url": "https://www.opencodelists.org/codelist/user/sw/gsk_shingles_vax_snomed/72861002/",
-      "downloaded_at": "2026-11-19 17:58:13.646167+00:00Z",
-      "sha": "7e7815508ecc15e7dd51502db7097f7223bcd678"
+    "user-sw-gsk-shingles-vaccination-snomed.csv": {
+      "id": "user/sw/gsk-shingles-vaccination-snomed/230e2652",
+      "url": "https://www.opencodelists.org/codelist/user/sw/gsk-shingles-vaccination-snomed/230e2652/",
+      "downloaded_at": "2026-11-20 16:48:51.424148+00:00Z",
+      "sha": "c3ad1e095fda7375e14e1b60bd1bf8a3eca69d15"
     },
     "user-sw-gsk-immunocompromised-leukaemia-lymphoma.csv": {
       "id": "user/sw/gsk-immunocompromised-leukaemia-lymphoma/25039bb6",
@@ -79,10 +79,10 @@
       "sha": "ca338e40f4bf19ebc9c7af9293f5e15d1ca6f5b3"
     },
     "user-sw-gsk-prev-dementia-snomed.csv": {
-      "id": "user/sw/gsk-prev-dementia-snomed/527a4cc6",
-      "url": "https://www.opencodelists.org/codelist/user/sw/gsk-prev-dementia-snomed/527a4cc6/",
-      "downloaded_at": "2026-11-19 17:58:17.958063+00:00Z",
-      "sha": "e496aec79103d82bdf8a9697c1df4f2fa9fe34d8"
+      "id": "user/sw/gsk-prev-dementia-snomed/70ef3fe7",
+      "url": "https://www.opencodelists.org/codelist/user/sw/gsk-prev-dementia-snomed/70ef3fe7/",
+      "downloaded_at": "2026-11-20 16:48:53.033382+00:00Z",
+      "sha": "0dd24ecc97f3390de21cfe72bd0cafc9988a8e89"
     },
     "user-sw-gsk-outcome-dementia-icd.csv": {
       "id": "user/sw/gsk-outcome-dementia-icd/396ad991",
@@ -91,10 +91,10 @@
       "sha": "9de733289c119868ce904d33cb19c5afe909435e"
     },
     "user-sw-gsk-outcome-dementia-snomed.csv": {
-      "id": "user/sw/gsk-outcome-dementia-snomed/205b665c",
-      "url": "https://www.opencodelists.org/codelist/user/sw/gsk-outcome-dementia-snomed/205b665c/",
-      "downloaded_at": "2026-11-19 17:58:18.203889+00:00Z",
-      "sha": "d354a8fcaa6d89fb817ac1fc2f06ac0e9cd4bc61"
+      "id": "user/sw/gsk-outcome-dementia-snomed/57dfccb2",
+      "url": "https://www.opencodelists.org/codelist/user/sw/gsk-outcome-dementia-snomed/57dfccb2/",
+      "downloaded_at": "2026-11-20 16:48:53.315533+00:00Z",
+      "sha": "d03d10612b9b84eec15db31c6ea00d805978eb1b"
     },
     "user-sw-gsk-prev-dementia-dmd.csv": {
       "id": "user/sw/gsk-prev-dementia-dmd/074bf327",
@@ -109,10 +109,28 @@
       "sha": "9b6870617cd843006efddbfedaa3c38e206a2372"
     },
     "user-sw-gsk-outcome-herpes-zoster-infection-icd.csv": {
-      "id": "user/sw/gsk-outcome-herpes-zoster-infection-icd/4ddb8069",
-      "url": "https://www.opencodelists.org/codelist/user/sw/gsk-outcome-herpes-zoster-infection-icd/4ddb8069/",
-      "downloaded_at": "2026-11-17 16:29:26.369882+00:00Z",
-      "sha": "ce7683fbbcec99859dae5d92a4f6b21b6b0c9f6a"
+      "id": "user/sw/gsk-outcome-herpes-zoster-infection-icd/09feb31d",
+      "url": "https://www.opencodelists.org/codelist/user/sw/gsk-outcome-herpes-zoster-infection-icd/09feb31d/",
+      "downloaded_at": "2026-11-20 16:48:53.640830+00:00Z",
+      "sha": "3185ed65ef938d1c6999ecf644cb2b3ee7ff0310"
+    },
+    "user-sw-gsk-immunocompromised-solid-organ-transplant-opcs4.csv": {
+      "id": "user/sw/gsk-immunocompromised-solid-organ-transplant-opcs4/0cb17313",
+      "url": "https://www.opencodelists.org/codelist/user/sw/gsk-immunocompromised-solid-organ-transplant-opcs4/0cb17313/",
+      "downloaded_at": "2026-11-20 16:48:53.748282+00:00Z",
+      "sha": "ae1a23152b972cb9ec8055ce398798a538d944b7"
+    },
+    "user-sw-gsk-immunocompromised-stem-cell-therapy-opcs4.csv": {
+      "id": "user/sw/gsk-immunocompromised-stem-cell-therapy-opcs4/25c0e648",
+      "url": "https://www.opencodelists.org/codelist/user/sw/gsk-immunocompromised-stem-cell-therapy-opcs4/25c0e648/",
+      "downloaded_at": "2026-11-20 16:48:53.854240+00:00Z",
+      "sha": "af34de16632803cc92c6fa7604c764b356c87dad"
+    },
+    "user-sw-gsk-immunocompromised-chemotherapy-radiotherapy-opcs4.csv": {
+      "id": "user/sw/gsk-immunocompromised-chemotherapy-radiotherapy-opcs4/73a1ffdd",
+      "url": "https://www.opencodelists.org/codelist/user/sw/gsk-immunocompromised-chemotherapy-radiotherapy-opcs4/73a1ffdd/",
+      "downloaded_at": "2026-11-20 16:48:53.959908+00:00Z",
+      "sha": "a34398c8e64af95f3813a399b8865282932cc7bd"
     }
   }
 }

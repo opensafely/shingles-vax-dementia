@@ -2,7 +2,8 @@ code,term
 105941000119105,Herpes zoster vaccination given
 1326101000000105,Administration of first dose of vaccine product containing only Human alphaherpesvirus 3 antigen for shingles
 1326111000000107,Administration of second dose of vaccine product containing only Human alphaherpesvirus 3 antigen for shingles
-571611000119101,Administration of varicella live vaccine
+1389147007,Administration of vaccine product containing only Human alphaherpesvirus 3 recombinant surface glycoprotein E antigen for shingles
+1389208000,Administration of vaccine product containing only live attenuated Human alphaherpesvirus 3 antigen for shingles
 626071000119103,Administration of subcutaneous zoster virus live vaccine
 722215002,Administration of vaccine product containing only Human alphaherpesvirus 3 antigen for shingles
 859641000000109,Herpes zoster vaccination
@@ -11,4 +12,4 @@ code,term
 868521000000100,Herpes zoster vaccination given by other health care provider 
 871898007,Administration of vaccine product containing only live attenuated Human alphaherpesvirus 3 antigen
 871899004,Administration of vaccine product containing only live attenuated Human alphaherpesvirus 3 antigen via subcutaneous route
-892271000000103,Herpes zoster vaccination offered 
+889611000000102,Adverse reaction to herpes zoster vaccine

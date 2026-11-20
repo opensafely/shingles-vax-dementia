@@ -5,7 +5,7 @@ from codelists import *
 # Function to identify immunocompromised status
 def check_ic(index_date, death_date):
     #check date validity
-    valid_apc = check_date_validity(apcs.admission_date, death_date=death_date)
+    valid_apcs = check_date_validity(apcs.admission_date, death_date=death_date)
     valid_tpp = check_date_validity(clinical_events.date, death_date=death_date)
     valid_med = check_date_validity(medications.date, death_date=death_date)
 
@@ -46,17 +46,27 @@ def check_ic(index_date, death_date):
             .where(clinical_events.date.is_on_or_between(index_date-years(2), index_date-days(1)))
             .where(valid_tpp.is_not_null())
             .exists_for_patient()
-        ) | ((clinical_events
-                    .where(clinical_events.snomedct_code.is_in(cell_snomed))
-                    .where(clinical_events.date.is_before(index_date-years(2)))
+        ) | (apcs
+             .where(apcs.all_procedures.contains_any_of(cell_opcs))
+             .where(apcs.admission_date.is_on_or_between(index_date-years(2), index_date-days(1)))
+             .where(valid_apcs.is_not_null())
+             .exists_for_patient()
+        ) | (((clinical_events
+                .where(clinical_events.snomedct_code.is_in(cell_snomed))
+                .where(clinical_events.date.is_before(index_date-years(2)))
+                .where(valid_tpp.is_not_null())
+                .exists_for_patient()
+                ) | (apcs
+                .where(apcs.all_procedures.contains_any_of(cell_opcs))
+                .where(apcs.admission_date.is_before(index_date-years(2)))
+                .where(valid_apcs.is_not_null())
+                .exists_for_patient())
+                ) & (clinical_events
+                    .where(clinical_events.snomedct_code.is_in(gvhd_snomed))
+                    .where(clinical_events.date.is_on_or_between(index_date-years(2), index_date-days(1)))
                     .where(valid_tpp.is_not_null())
-                    .exists_for_patient()
-                    ) & (clinical_events
-                                .where(clinical_events.snomedct_code.is_in(gvhd_snomed))
-                                .where(clinical_events.date.is_on_or_between(index_date-years(2), index_date-days(1)))
-                                .where(valid_tpp.is_not_null())
-                                .exists_for_patient())
-            )
+                    .exists_for_patient())
+            ) 
 
     has_chemo_radio = (clinical_events
             .where(clinical_events.snomedct_code.is_in(chemo_snomed))
@@ -67,14 +77,25 @@ def check_ic(index_date, death_date):
             .where(clinical_events.snomedct_code.is_in(radio_snomed))
             .where(clinical_events.date.is_on_or_between(index_date-months(6), index_date-days(1)))
             .where(valid_tpp.is_not_null())
-            .exists_for_patient())
+            .exists_for_patient()
+            ) | (apcs
+            .where(apcs.all_procedures.contains_any_of(chemoradio_opcs))
+            .where(apcs.admission_date.is_on_or_between(index_date-months(6), index_date-days(1)))
+            .where(valid_apcs.is_not_null())
+            .exists_for_patient()
+            )
 
     has_organtrans = (clinical_events
             .where(clinical_events.snomedct_code.is_in(organ_snomed))
             .where(clinical_events.date.is_on_or_between(index_date-months(6), index_date-days(1)))
             .where(valid_tpp.is_not_null())
             .exists_for_patient()
-            ) 
+            ) | (apcs
+            .where(apcs.all_procedures.contains_any_of(organ_opcs))
+            .where(apcs.admission_date.is_on_or_between(index_date-months(6), index_date-days(1)))
+            .where(valid_apcs.is_not_null())
+            .exists_for_patient()
+            )
 
     has_immunemed = (medications
                      .where(medications.dmd_code.is_in(immune_med))

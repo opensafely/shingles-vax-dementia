@@ -68,7 +68,6 @@ code,term
 192184002,[X]Delirium superimposed on dementia
 192802002,Dementia in Alzheimer's disease with early onset
 192803007,Dementia in Alzheimer's disease with late onset
-192813004,Cerebral degeneration due to cerebrovascular disease
 194481000,[X]Other Alzheimer's disease
 198681000000106,[X]Lewy body dementia
 214031000000108,[X]Lewy body dementia
@@ -127,8 +126,6 @@ code,term
 6475002,"Primary degenerative dementia of the Alzheimer type, presenile onset, uncomplicated"
 65096006,"Primary degenerative dementia of the Alzheimer type, presenile onset, with delirium"
 66108005,"Primary degenerative dementia of the Alzheimer type, senile onset, uncomplicated"
-698948009,Vascular dementia in remission
-698949001,Dementia in remission
 698954005,"Primary degenerative dementia of the Alzheimer type, senile onset in remission"
 698955006,"Primary degenerative dementia of the Alzheimer type, presenile onset in remission"
 700911000000100,Other senile/presenile dementia

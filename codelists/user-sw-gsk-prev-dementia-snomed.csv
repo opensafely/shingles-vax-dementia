@@ -68,6 +68,7 @@ code,term
 1259677009,Dementia due to multiple system atrophy
 1259679007,Dementia due to atypical pantothenate kinase associated neurodegeneration
 1259990004,Dementia due to classical pantothenate kinase associated neurodegeneration
+1260328002,Familial multiple system deposition of tau protein
 1260352009,Frontotemporal dementia due to TARDBP mutation
 1260353004,Frontotemporal dementia due to VCP mutation
 1260354005,Frontotemporal dementia due to C9orf72 mutation
@@ -119,6 +120,7 @@ code,term
 191465006,Arteriosclerotic dementia with paranoia
 191466007,Arteriosclerotic dementia with depression
 191467003,Arteriosclerotic dementia NOS
+191475009,Chronic brain syndrome due to ethanol use
 191493005,Dementia caused by drug
 191519005,Dementia associated with another disease
 192160005,[X]Dementia in Alzheimer's disease
@@ -139,10 +141,12 @@ code,term
 192177005,[X]Dementia in Parkinson's disease
 192180006,[X] Dementia: [unspecif] or [presenile NOS (including presenile psychosis NOS)] or [primary degenerative NOS] or [senile NOS (including senile psychosis NOS)] or [senile depressed or paranoid type]
 192184002,[X]Delirium superimposed on dementia
+192794001,Cerebral degeneration associated with another disorder
 192802002,Dementia in Alzheimer's disease with early onset
 192803007,Dementia in Alzheimer's disease with late onset
 192813004,Cerebral degeneration due to cerebrovascular disease
 192818008,Cerebral degeneration due to Creutzfeldt-Jakob disease
+192819000,Cerebral degeneration due to progressive multifocal leukoencephalopathy
 194481000,[X]Other Alzheimer's disease
 198681000000106,[X]Lewy body dementia
 214031000000108,[X]Lewy body dementia
@@ -194,6 +198,8 @@ code,term
 323382009,Product containing precisely galantamine (as galantamine hydrobromide) 8 milligram/1 each conventional release oral tablet
 323383004,Product containing precisely galantamine (as galantamine hydrobromide) 12 milligram/1 each conventional release oral tablet
 32875003,Inhalant-induced persisting dementia
+341551000000108,Cerebral degeneration in Parkinson's disease
+368771000000107,Cerebral degeneration in Parkinson's disease 
 371024007,Senile dementia with delusion
 371026009,Senile dementia with psychosis
 390000004,Binswanger's disease
@@ -209,6 +215,7 @@ code,term
 414361000000104,[X]Dementia in Huntington's disease
 416780008,"Primary degenerative dementia of the Alzheimer type, presenile onset"
 416975007,"Primary degenerative dementia of the Alzheimer type, senile onset"
+418143002,Cerebral degeneration
 419261000000107,"[X]Dementia in Alzheimer's dis, atypical or mixed type"
 420614009,Organic dementia with acquired immunodeficiency syndrome
 421023003,Presenile dementia with acquired immunodeficiency syndrome
@@ -223,6 +230,7 @@ code,term
 443541000000101,"[X]Dementia in Alzheimer's disease, unspecified"
 443781000000102,[X]Other Alzheimer's disease
 455381000000102,[X]Dementia in Pick's disease
+45864009,Senile degeneration of brain
 471341000000106,[X]Unspecified dementia
 479161000000109,[X]Dementia in Parkinson's disease
 4817008,"Primary degenerative dementia of the Alzheimer type, senile onset, with delirium"
@@ -260,9 +268,11 @@ code,term
 713060000,Sporadic Creutzfeldt-Jakob disease
 713488003,Presenile dementia co-occurrent with human immunodeficiency virus infection
 713844000,Dementia co-occurrent with human immunodeficiency virus infection
+715574002,Posterior cortical atrophy syndrome
 715662009,Iatrogenic Jakob-Creutzfeldt disease
 715737004,Parkinsonism co-occurrent with dementia of Guadeloupe
 715807002,Familial Creutzfeldt-Jakob
+716667005,Right temporal atrophy variant frontotemporal dementia
 716994006,Behavioral variant of frontotemporal dementia
 722600006,Non-amnestic Alzheimer disease
 722977005,Dementia co-occurrent and due to neurocysticercosis

@@ -1,5 +1,5 @@
 opensafely/ethnicity-snomed-0removed/22911876
-user/sw/gsk_shingles_vax_snomed/72861002
+user/sw/gsk-shingles-vaccination-snomed/230e2652
 user/sw/gsk-immunocompromised-leukaemia-lymphoma/25039bb6
 user/sw/gsk-immunocompromised-lymphoproliferative-disorders/281500f5
 user/sw/gsk-immunocompromised-hiv-aids/0bf42881
@@ -11,9 +11,12 @@ user/sw/gsk-immunocompromised-radiotherapy/40c5cee1
 user/sw/gsk-immunocompromised-solid-organ-transplant/59d54216
 user/sw/gsk-immunocompromised-medication/1159a86d
 user/sw/gsk-prev-dementia-icd/6b89bffb
-user/sw/gsk-prev-dementia-snomed/527a4cc6
+user/sw/gsk-prev-dementia-snomed/70ef3fe7
 user/sw/gsk-outcome-dementia-icd/396ad991
-user/sw/gsk-outcome-dementia-snomed/205b665c
+user/sw/gsk-outcome-dementia-snomed/57dfccb2
 user/sw/gsk-prev-dementia-dmd/074bf327
 user/sw/gsk-outcome-herpes-zoster-infection-snomed/34cc0d34
-user/sw/gsk-outcome-herpes-zoster-infection-icd/4ddb8069
+user/sw/gsk-outcome-herpes-zoster-infection-icd/09feb31d
+user/sw/gsk-immunocompromised-solid-organ-transplant-opcs4/0cb17313
+user/sw/gsk-immunocompromised-stem-cell-therapy-opcs4/25c0e648
+user/sw/gsk-immunocompromised-chemotherapy-radiotherapy-opcs4/73a1ffdd

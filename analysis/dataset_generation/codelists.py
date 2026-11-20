@@ -7,7 +7,7 @@ ethnicity_codelist = codelist_from_csv(
 )
 
 shinglesvax_codelist = codelist_from_csv(
-    "codelists/user-sw-gsk_shingles_vax_snomed.csv",
+    "codelists/user-sw-gsk-shingles-vaccination-snomed.csv",
     column="code"
 )
 
@@ -192,6 +192,20 @@ immune_med = codelist_from_csv(
     column="code"
 )
 
+cell_opcs = codelist_from_csv(
+    "codelists/user-sw-gsk-immunocompromised-stem-cell-therapy-opcs4.csv",
+    column="code"
+)
+
+organ_opcs = codelist_from_csv(
+    "codelists/user-sw-gsk-immunocompromised-solid-organ-transplant-opcs4.csv",
+    column="code"
+)
+
+chemoradio_opcs = codelist_from_csv(
+    "codelists/user-sw-gsk-immunocompromised-chemotherapy-radiotherapy-opcs4.csv",
+    column="code"
+)
 
 #####Outcome
 dementia_prev_icd = codelist_from_csv(
