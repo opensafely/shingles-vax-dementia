@@ -5,8 +5,7 @@
 # Extract conventions:
 # - var_date_birth: the 15th of the recorded month (England) or the Thursday of the recorded week (Wales).
 #   Month-start or Monday dates are converted. Any other date stops the run.
-# - out_date_*: the first record on or after the index date, including days 0 to 30, which the analysis
-#   handles as the induction period.
+# - out_date_*: the first record from day 31 after the index date, when follow-up starts (SAP Table 3).
 # - var_date_1vax_rzv: the first RZV dose on or after the earliest possible 65th birthday (the first day of
 #   the recorded month or week, 65 years on), or 1 September 2023 for ineligible adults.
 #   pre_bin_vax_shingles flags RZV or ZVL receipt before that date.
@@ -15,7 +14,8 @@
 # - pre_rate_hospitalisation and pre_rate_gpvisit: counts of admissions and visits, not rates, over the
 #   2 years before the index date, truncated at var_date_lookback (the start of registration or of data
 #   coverage). prior_rates() in derive.R annualises them.
-# - Other pre_bin_* flags refer to the period before the index date, and var_bin_* flags to the index date.
+# - pre_bin_dementia: dementia diagnosis or medication up to day 30 after the index date. Other pre_bin_* flags
+#   refer to the period before the index date, and var_bin_* flags to the index date.
 #
 # Author/contact: Samantha Ip (hyi20@cam.ac.uk)
 
@@ -92,7 +92,7 @@ read_extract <- function(path) {
 }
 
 # Require this nation's variables, check and convert their types, and retain the permitted optional and
-# identifier columns. Add missing other-nation variables as NA (region for Wales, residency end for England).
+# identifier columns. Add missing other-nation variables as NA (region for Wales).
 prepare_extract <- function(d, nation) {
   mine <- REQUIRED_VARIABLES$nations %in% c("both", nation)
   absent <- setdiff(REQUIRED_VARIABLES$name[mine], names(d))

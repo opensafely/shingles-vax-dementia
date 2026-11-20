@@ -42,9 +42,9 @@ rd_data <- function(co, fu, keep = rep(TRUE, nrow(co)), receipt = "vacc_by_end")
 # Fit the model with weights w (the counts n, or a bootstrap draw of them), adding the squared Newton
 # decrement to the fit. Require events on both sides of the cutoff, without which the likelihood has no
 # finite maximum, and a full-rank design, which needs at least two distinct birth dates on each side. The
-# caller sets the minimum number of events per side, never below 1: run_nation.R passes
-# STUDY$min_events_side (8) for every fit to the full data, and bootstrap refits keep the default of 1. The
-# error message gives no count, as it goes to the released log.
+# caller sets the minimum number of events per side, never below 1: run_nation.R passes the nation's
+# min_events_side (8 in England, 10 in Wales) for every fit to the full data, and bootstrap refits keep the
+# default of 1. The error message gives no count, as it goes to the released log.
 fit_weibull_rd <- function(md, w = md$n, init = NULL, min_events_side = 1L) {
   md$w <- w
   md <- md[md$w > 0, , drop = FALSE]

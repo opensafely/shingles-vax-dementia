@@ -54,9 +54,11 @@ age_years <- function(dob, on) {
 
 # Outcome-specific follow-up (SAP Table 3) starts after the 30-day induction period. Count time from the end
 # of day 30 after the index date, so an outcome on day 31 has time 1 day, and an adult whose follow-up ends by
-# day 30 is not at risk. Censor at death, deregistration, end of Welsh residency or the administrative end,
-# the earlier of the study end and data_end (the end of complete data). An outcome on the censoring date
-# counts as an event. Dementia does not censor HZ follow-up.
+# day 30 is not at risk. Censor at death, deregistration, end of residency (var_date_residencyend) or the
+# administrative end, the earlier of the study end and data_end (the end of complete data). An outcome on the
+# censoring date counts as an event. Dementia does not censor HZ follow-up. Outcome dates start on day 31
+# (README, convention 2). A date on or before day 30, which data_checks.csv counts, gives time 0 or less, so
+# the adult is not at risk for that outcome.
 follow_up <- function(d, outcome, study, data_end) {
   entry <- d$index_date + study$induction_days
   admin <- min(study$study_end, data_end)

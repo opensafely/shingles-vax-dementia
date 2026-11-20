@@ -41,7 +41,7 @@ cutoff_line <- function(cutoff) ggplot2::geom_vline(xintercept = cutoff, linetyp
                                                     colour = PAL[["ink2"]], linewidth = 0.4)
 
 # Crude birth-month incidence rates and model-based average rates over planned follow-up, from events_by_bin().
-plot_rates <- function(ev, cutoff, title) {
+plot_rates <- function(ev, cutoff, title, rule) {
   if (!nrow(ev) || !requireNamespace("ggplot2", quietly = TRUE)) return(NULL)
   ev$side <- as.character(ev$eligible)
   pts <- ev[!is.na(ev$rate_per_1000py), ]
@@ -53,7 +53,8 @@ plot_rates <- function(ev, cutoff, title) {
     ggplot2::geom_line(data = fit, ggplot2::aes(y = model_rate_per_1000py, group = side), linewidth = 0.7) +
     side_scale() + theme_rd() +
     ggplot2::labs(x = "Birth month", y = "Events per 1000 person-years", title = title,
-                  caption = paste("Points: crude rate in each birth month (counts rounded to 5 and withheld at 7 or fewer).",
+                  caption = paste(sprintf("Points: crude rate in each birth month (counts rounded to %d and withheld at %d or fewer).",
+                                          rule$round_to, rule$redact_at_or_below),
                                   "Lines: the fitted Weibull RD model's rate for an adult followed from day 31 to the end of follow-up.", sep = "\n"))
 }
 
@@ -82,7 +83,7 @@ plot_density <- function(bins, mc, cutoff, title) {
 }
 
 # RZV uptake by birth month, from uptake_by_bin().
-plot_uptake <- function(up, cutoff, title) {
+plot_uptake <- function(up, cutoff, title, rule) {
   up <- up[!is.na(up$pct_vaccinated), ]
   if (!nrow(up) || !requireNamespace("ggplot2", quietly = TRUE)) return(NULL)
   up$side <- as.character(up$eligible)
@@ -92,18 +93,19 @@ plot_uptake <- function(up, cutoff, title) {
     side_scale() + theme_rd() +
     ggplot2::labs(x = "Birth month", y = "Vaccinated (%)", title = title,
                   caption = paste("Adults with at least one RZV dose by the end of their follow-up.",
-                                  "Counts rounded to 5 and withheld at 7 or fewer."))
+                                  sprintf("Counts rounded to %d and withheld at %d or fewer.", rule$round_to, rule$redact_at_or_below)))
 }
 
 # Cohort selection flowchart from one nation's selection_table() (cohort_selection.csv): the adults remaining
 # after each SAP 5.2.1 criterion, in the SAP's order, the adults excluded at each criterion beside it, and the
 # analysis cohort by eligibility at the foot. It uses the released counts, rounded to 5, and shows a withheld
-# count as "7 or fewer". The table can also be read back from the released file and drawn outside the SDE.
-plot_flowchart <- function(sel, title) {
+# count as "7 or fewer" in England and "9 or fewer" in Wales. The table can also be read back from the
+# released file and drawn outside the SDE.
+plot_flowchart <- function(sel, title, rule) {
   all <- sel[sel$group == "All", ]
   all <- all[order(all$step), ]
   if (nrow(all) < 2 || !requireNamespace("ggplot2", quietly = TRUE)) return(NULL)
-  num <- function(x) ifelse(is.na(x), "7 or fewer", ifelse(x >= 10000, formatC(x, format = "d", big.mark = ","), as.character(x)))
+  num <- function(x) ifelse(is.na(x), sprintf("%d or fewer", rule$redact_at_or_below), ifelse(x >= 10000, formatC(x, format = "d", big.mark = ","), as.character(x)))
   last <- function(g) { s <- sel[sel$group == g, ]; s$remaining[which.max(s$step)] }
   k <- nrow(all) - 1L                                            # criteria, after "Extracted"
   main <- data.frame(x = 0, y = -(0:k), label = paste0(c("Extracted", rep("Remaining", k - 1L), "Analysis cohort"), ": ", num(all$remaining)))
@@ -132,7 +134,8 @@ plot_flowchart <- function(sel, title) {
                    plot.caption = ggplot2::element_text(colour = PAL[["ink2"]], hjust = 0),
                    plot.title.position = "plot", plot.caption.position = "plot",
                    plot.margin = ggplot2::margin(8, 8, 8, 8)) +
-    ggplot2::labs(title = title, caption = "Criteria of SAP 5.2.1, in its order. Counts rounded to 5 and withheld at 7 or fewer.")
+    ggplot2::labs(title = title, caption = sprintf("Criteria of SAP 5.2.1, in its order. Counts rounded to %d and withheld at %d or fewer.",
+                                                        rule$round_to, rule$redact_at_or_below))
 }
 
 # Forest plot with pooled estimates shown as diamonds. Preserve input row order within each panel, with panels

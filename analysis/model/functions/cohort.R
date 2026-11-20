@@ -1,6 +1,6 @@
 # The SAP 5.2.1 cohort criteria, applied in order, and the selection tables (SAP 6.3). One cohort, selected
-# with the dementia follow-up (fu_primary), serves both outcomes. Dementia during days 0 to 30 excludes adults
-# from both analyses. HZ during days 0 to 30 excludes them only from the HZ analysis.
+# with the dementia follow-up (fu_primary), serves both outcomes. Dementia up to day 30 excludes adults
+# from both analyses. Outcome dates start on day 31 (README, convention 2), so HZ before then excludes no one.
 #
 # Author/contact: Samantha Ip (hyi20@cam.ac.uk)
 
@@ -15,16 +15,18 @@ cohort_criteria <- function(d, nation, study, fu_primary) {
     # 5.2.1, the criteria for every adult
     "Birth month or week recorded"                  = has_dob,
     "Sex recorded as female or male"                = d$cov_cat_sex %in% c("Female", "Male"),
-    "Alive on the index date"                       = is.na(d$index_date) | is.na(d$var_date_death) | d$var_date_death > d$index_date,
+    "Alive on the index date"                       = has_dob & (is.na(d$var_date_death) | d$var_date_death > d$index_date),
     "Living in the nation on the index date"        = d$var_bin_residency %in% TRUE,
     "Area recorded (urban or rural, and region)"    = d$cov_cat_urban!='Unknown' & (nation != "England" | d$cov_cat_region!='Unknown'),
     "Registered with a GP on the index date"        = d$var_bin_registration %in% TRUE,
     # 5.2.1.1, inclusion
     "Aged 63 to 66 on 31 August 2023"               = in_bandwidth(d, study, study$bandwidths[[study$primary_bandwidth]]),
-    # 5.2.1.2, exclusions. Its first bullet (dementia before the index date or in the induction period) is two steps
-    "No dementia before the index date and within 30 days after"             = !(d$pre_bin_dementia %in% TRUE),
-    # an event at time 0 or less is a dementia record dated on or before day 30 after the index date
-    # "No dementia in the 30-day induction period"    = !((fu_primary$event == 1L & fu_primary$time_days <= 0L) %in% TRUE | med_early),
+    # 5.2.1.2, exclusions. Its first bullet, dementia before the index date or in the induction period, is one
+    # step. pre_bin_dementia covers dementia diagnosis or medication up to day 30 after the index date. A
+    # dementia medication date on days 0 to 30 also counts, as does a dementia outcome date on or before day 30
+    # (an event at time 0 or less), which convention 2 rules out and data_checks.csv counts.
+    "No dementia up to day 30 after the index date" =
+      !(d$pre_bin_dementia %in% TRUE | (fu_primary$event == 1L & fu_primary$time_days <= 0L) %in% TRUE | med_early),
     "Not immunocompromised"                         = !(d$pre_bin_ic %in% TRUE),
     # the flag counts from the earliest possible 65th birthday (README, "What the extract must contain")
     "No RZV or ZVL before the earliest possible index date" = !(d$pre_bin_vax_shingles %in% TRUE),

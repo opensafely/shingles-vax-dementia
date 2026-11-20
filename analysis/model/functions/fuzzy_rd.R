@@ -90,14 +90,15 @@ receipt_template <- function(defs, years = numeric(0)) {
              n_boot = NA_integer_, n_boot_failed = NA_integer_)
 }
 
-# Adults with and without receipt on each side of the cutoff, within the bandwidth of an estimate of delta.
-side_counts <- function(md, spec) {
-  k <- abs(md$r) < spec$h
+# Adults with and without receipt in each birth month that reaches into the bandwidth of an estimate of delta,
+# counting the whole month. cutoff + r_days is the assumed birth date (README, convention 1), so for dementia's
+# main delta these are the monthly counts that uptake_by_bin.csv releases rounded. In England a month is one
+# birth bin, and in Wales several weeks.
+month_counts <- function(md, spec) {
+  m <- format(STUDY$cutoff + md$r_days, "%Y-%m")
+  k <- m %in% m[abs(md$r) < spec$h]
   y <- md[[spec$receipt]][k]
-  z <- factor(md$z[k], levels = 0:1)
-  x <- c(tapply(md$n[k] * y, z, sum), tapply(md$n[k] * (1 - y), z, sum))
-  x[is.na(x)] <- 0
-  x
+  cbind(with = tapply(md$n[k] * y, m[k], sum), without = tapply(md$n[k] * (1 - y), m[k], sum))
 }
 
 # Calculate approximate receipt effects from a converged Weibull fit and each estimate of delta in specs
@@ -145,12 +146,13 @@ receipt_estimates <- function(md, w, f, specs, years = numeric(0), induction_day
 #
 # Return receipt_template()'s rows for the analyses made. Each delta row takes rdrobust's CI and SEs
 # (delta_rbc()) and keeps the bootstrap SD in boot_se. If rdrobust fails for a delta, its CI is left missing and
-# the "rbc_failures" attribute gives the reason. If, within the bandwidth for delta, either side has fewer than
-# min_count adults with receipt, or fewer without, the fitted uptakes at the cutoff could reveal that count, so
-# both sides' are withheld and the "uptake_withheld" attribute names the analysis. delta is kept, as it reveals
-# such a count only together with the other side's uptake.
+# the "rbc_failures" attribute gives the reason. If a birth month reaching into the bandwidth for delta has fewer
+# than min_count adults with receipt, or fewer without, the fitted uptakes at the cutoff could narrow down that
+# withheld count, even when rounded, so both sides' are withheld and the "uptake_withheld" attribute names the
+# analysis. delta is kept. min_count defaults to min_events_side, which run_nation.R sets from the nation's
+# disclosure rule. round_receipt() rounds the results for release.
 receipt_effect <- function(md, n_boot, seed, specs, min_events_side = 1L, years = numeric(0), induction_days = 0,
-                           max_failed = STUDY$max_boot_failed, min_count = STUDY$min_events_side) {
+                           max_failed = STUDY$max_boot_failed, min_count = min_events_side) {
   stopifnot(n_boot >= 1, length(specs) >= 1)
   f <- fit_weibull_rd(md, min_events_side = min_events_side)
   why_not <- vapply(specs, function(s) tryCatch({ uptake_fit(md, md$n, s$h, s$p, s$receipt); "" },
@@ -194,7 +196,7 @@ receipt_effect <- function(md, n_boot, seed, specs, min_events_side = 1L, years 
     j <- res$analysis == k & res$quantity == "delta"
     res$lci[j] <- res$uci[j] <- NA_real_
     if (is.numeric(rbc[[k]])) res[j, names(rbc[[k]])] <- as.list(rbc[[k]])
-    if (min(side_counts(md, specs[[k]])) < min_count) {
+    if (any(month_counts(md, specs[[k]]) < min_count)) {
       side <- res$analysis == k & res$quantity %in% c("uptake_ineligible", "uptake_eligible")
       res[side, c("estimate", "lci", "uci", "boot_se")] <- NA_real_
       withheld <- c(withheld, k)
@@ -205,4 +207,18 @@ receipt_effect <- function(md, n_boot, seed, specs, min_events_side = 1L, years 
   attr(res, "rbc_failures") <- unlist(Filter(is.character, rbc))
   attr(res, "uptake_withheld") <- withheld
   res
+}
+
+# Round the receipt results for release (results_receipt.csv). At full precision the fitted uptakes and delta
+# are exact functions of the birth-bin counts. In England the bins are the months whose counts uptake_by_bin.csv
+# releases rounded, and the two together give the exact counts back. HR_CACE, TR_CACE and the incidences with
+# HR_CACE applied would give delta back, as results_eligibility.csv keeps the HR and TR at full precision. So
+# estimates, CIs and the bandwidths for delta keep 3 decimal places, the incidences, which are proportions, 4,
+# and SEs 3 significant figures.
+round_receipt <- function(x) {
+  d <- ifelse(startsWith(x$quantity, "inc_"), 4L, 3L)
+  for (k in c("estimate", "lci", "uci")) x[[k]] <- round(x[[k]], d)
+  for (k in c("boot_se", "se_conventional", "se_robust")) x[[k]] <- signif(x[[k]], 3)
+  for (k in c("delta_bandwidth", "delta_bias_bandwidth")) x[[k]] <- round(x[[k]], 3)
+  x
 }

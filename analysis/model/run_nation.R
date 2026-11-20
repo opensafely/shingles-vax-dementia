@@ -17,7 +17,7 @@
 #
 # Outputs, in the --out folder (see README, "National analysis", "Outputs", for what each holds):
 #   checks       data_checks.csv, records_by_calendar_month.csv
-#   cohort       cohort_selection.csv, cohort_selection_by_bin.csv
+#   cohort       cohort_selection.csv, and not_for_release/cohort_selection_by_bin.csv for checks inside the SDE
 #   descriptive  baseline_table.csv, baseline_smd.csv, events_summary.csv, events_by_bin.csv, uptake_by_bin.csv
 #   density      density_test.csv, density_by_bin.csv
 #   results      results_eligibility.csv, results_incidence.csv, results_receipt.csv
@@ -63,7 +63,7 @@ d <- derive_birth(d, cfg$bin, STUDY)
 log_line("Extract: ", sdc_count(nrow(d), rule), " rows",
          if (attr(d, "dob_moved_to_middle") > 0) ". Birth dates on the first day of their month or week were moved to the middle" else "")
 if (!"out_date_dementia_med" %in% names(d)) {
-  log_line("out_date_dementia_med is not in the extract: dementia medication in the induction period is not excluded (SAP 5.2.1.2)")
+  log_line("out_date_dementia_med is not in the extract: dementia medication is excluded through pre_bin_dementia only (SAP 5.2.1.2)")
 }
 d <- prior_rates(d)
 fu <- lapply(STUDY$outcomes, function(v) follow_up(d, v, STUDY, cfg$data_end))
@@ -89,14 +89,11 @@ crit <- cohort_criteria(d, nation, STUDY, fu[[STUDY$primary_outcome]])
 labels <- names(crit)
 ff <- first_failed(crit)
 sel <- write_table(selection_table(d, ff, labels, nation, rule), out, "cohort_selection.csv")
-write_table(selection_by_bin(d, ff, labels, nation, STUDY, rule), out, "cohort_selection_by_bin.csv")
-# Report events on days 0 to 30 separately: dementia among adults who passed every earlier criterion, and HZ
-# among adults in the analysis cohort.
-in_induction <- function(o) (fu[[o]]$event == 1L & fu[[o]]$time_days <= 0L) %in% TRUE
-early <- lapply(stats::setNames(names(fu), names(fu)), function(o) {
-  among <- if (o == STUDY$primary_outcome) ff == match("No dementia in the 30-day induction period", labels) else ff == 0L
-  d[among & in_induction(o), c("dob", "z"), drop = FALSE]
-})
+# By birth month, the selection counts can be combined with the other monthly tables and the totals in
+# cohort_selection.csv to recover a withheld exclusion, so they go to not_for_release/, for checking inside the
+# SDE. SAP 6.3 asks for the exclusions by nation, which cohort_selection.csv gives.
+dir.create(file.path(out, "not_for_release"), showWarnings = FALSE)
+write_table(selection_by_bin(d, ff, labels, nation, STUDY, rule), out, file.path("not_for_release", "cohort_selection_by_bin.csv"))
 co <- d[ff == 0L, , drop = FALSE]
 fu <- lapply(fu, function(x) x[ff == 0L, , drop = FALSE])
 co$vacc_by_date <- fu[[STUDY$primary_outcome]]$vacc_by_date            # for the baseline table
@@ -118,8 +115,8 @@ if (length(present)) {
 if (length(present) < length(COMORBIDITIES)) {
   log_line("Comorbidities not in the extract yet: ", paste(setdiff(names(COMORBIDITIES), present), collapse = ", "))
 }
-# The subgroups of SAP 6.6 (ii) count only the flags recorded for at least 0.1% of the cohort and more than 7
-# adults (subgroup_flags() in describe.R).
+# The subgroups of SAP 6.6 (ii) count only the flags recorded for at least 0.1% of the cohort and for more
+# adults than the disclosure threshold (subgroup_flags() in describe.R).
 sub_flags <- subgroup_flags(co, present, STUDY, rule)
 if (length(sub_flags)) co$comorbidity_subgroup <- comorbidity_subgroup(co, sub_flags)
 if (length(sub_flags) < length(present)) {
@@ -128,7 +125,7 @@ if (length(sub_flags) < length(present)) {
 }
 bt <- write_table(baseline_table(co, table1, nation, rule), out, "baseline_table.csv")
 write_table(baseline_smd(bt), out, "baseline_smd.csv")
-write_table(do.call(rbind, lapply(names(fu), function(o) events_summary(co, fu[[o]], nation, o, STUDY, rule, early[[o]]))),
+write_table(do.call(rbind, lapply(names(fu), function(o) events_summary(co, fu[[o]], nation, o, STUDY, rule))),
             out, "events_summary.csv")
 # Birth-month uptake uses the dementia follow-up, as does the dementia delta.
 uptake <- uptake_by_bin(co, fu[[STUDY$primary_outcome]], nation, rule)
@@ -163,7 +160,7 @@ for (o in names(STUDY$outcomes)) {
       # Adults with identical model data share one row of md, and md$n counts them.
       md <- rd_data(co, fu[[o]], inside & (s == "All" | co$cov_cat_sex %in% s))
       f <- fit_safely(sprintf("%s, %s-year bandwidth, %s", o, w, s),
-                      fit_weibull_rd(md, min_events_side = STUDY$min_events_side))
+                      fit_weibull_rd(md, min_events_side = rule$min_events_side))
       key <- data.frame(nation = nation, outcome = o, bandwidth = w, stratum = s)
       counts <- data.frame(n = sdc_count(sum(md$n), rule), events = sdc_count(sum(md$n * md$event), rule),
                            person_years = sdc_stat(round(sum(md$n * md$time)), sum(md$n), rule))
@@ -227,7 +224,7 @@ receipt_rows <- function(md, label, w, defs, seed, key, converged, p) {
     }
   }
   t1 <- Sys.time()
-  r <- if (length(specs)) fit_safely(label, receipt_effect(md, n_boot, seed, specs, STUDY$min_events_side,
+  r <- if (length(specs)) fit_safely(label, receipt_effect(md, n_boot, seed, specs, rule$min_events_side,
                                                            STUDY$incidence_years, STUDY$induction_days)) else NULL
   if (!is.null(r)) {
     for (k in unique(r$analysis)) {
@@ -255,8 +252,8 @@ receipt_rows <- function(md, label, w, defs, seed, key, converged, p) {
       log_line("  ", label, ": no robust bias-corrected CI for delta (", k, "): ", attr(r, "rbc_failures")[[k]])
     }
     for (k in attr(r, "uptake_withheld")) {
-      log_line("  ", label, ": fitted uptakes at the cutoff (", k, ") withheld, as one side has ", STUDY$min_events_side - 1L,
-               " or fewer adults with, or without, receipt within the bandwidth for delta")
+      log_line("  ", label, ": fitted uptakes at the cutoff (", k, ") withheld, as a birth month within the bandwidth for delta has ",
+               rule$redact_at_or_below, " or fewer adults with, or without, receipt")
     }
     log_line("  ", label, ": ", round(as.numeric(Sys.time() - t1, units = "mins"), 1), " minutes, ",
              paste0(tapply(r$n_boot_failed, r$analysis, `[`, 1)[unique(r$analysis)], " of ", n_boot, " samples failed (",
@@ -301,7 +298,7 @@ if (length(sub_flags)) {
     md <- rd_data(co, fu[[o]], inside & co$comorbidity_subgroup == g)
     label <- sprintf("Receipt effect, %s, %s-year bandwidth, %s", o, w, g)
     f <- fit_safely(sprintf("Eligibility effect, %s, %s-year bandwidth, %s", o, w, g),
-                    fit_weibull_rd(md, min_events_side = STUDY$min_events_side))
+                    fit_weibull_rd(md, min_events_side = rule$min_events_side))
     ok <- !is.null(f) && converged(f)
     eff <- if (ok) weibull_effects(f) else NULL
     rec[[length(rec) + 1]] <- receipt_rows(md, label, w, "main", seed = STUDY$seed + 1000L + match(g, COMORBIDITY_SUBGROUPS),
@@ -311,19 +308,20 @@ if (length(sub_flags)) {
 } else {
   log_line("No comorbidity flags to count, so no comorbidity subgroups (SAP 6.6 (ii))")
 }
-write_table(do.call(rbind, rec), out, "results_receipt.csv")
+# Rounded for release, as the density test is above (round_receipt() in fuzzy_rd.R).
+write_table(round_receipt(do.call(rbind, rec)), out, "results_receipt.csv")
 
 # ---- Figures ----
-save_plot(plot_flowchart(sel, sprintf("%s: cohort selection", nation)), file.path(out, "fig_flowchart.png"),
+save_plot(plot_flowchart(sel, sprintf("%s: cohort selection", nation), rule), file.path(out, "fig_flowchart.png"),
           width = 8, height = 0.5 * (length(labels) + 4))
 unit <- if (cfg$bin == "month") "month" else "week"
 save_plot(plot_density(bins, mc_round, STUDY$cutoff, sprintf("%s: adults by recorded birth %s", nation, unit)),
           file.path(out, "fig_density.png"))
 for (o in names(ev)) {
-  save_plot(plot_rates(ev[[o]], STUDY$cutoff, sprintf("%s: %s incidence by birth month", nation, if (o == "hz") "HZ" else o)),
+  save_plot(plot_rates(ev[[o]], STUDY$cutoff, sprintf("%s: %s incidence by birth month", nation, if (o == "hz") "HZ" else o), rule),
             file.path(out, sprintf("fig_rates_%s.png", o)))
 }
-save_plot(plot_uptake(uptake, STUDY$cutoff, sprintf("%s: RZV uptake by birth month", nation)),
+save_plot(plot_uptake(uptake, STUDY$cutoff, sprintf("%s: RZV uptake by birth month", nation), rule),
           file.path(out, "fig_uptake.png"))
 
 # Save the settings, which pool_nations.R checks are compatible across the nations.
@@ -331,7 +329,7 @@ code <- c(file.path(here, "run_nation.R"), sort(list.files(file.path(here, "func
 settings <- c(nation = nation, cutoff = format(STUDY$cutoff), study_end = format(STUDY$study_end),
               follow_up_end = format(min(STUDY$study_end, cfg$data_end)), induction_days = STUDY$induction_days,
               bandwidths = paste(names(STUDY$bandwidths), collapse = " "), primary_bandwidth = STUDY$primary_bandwidth,
-              incidence_years = paste(STUDY$incidence_years, collapse = " "), min_events_side = STUDY$min_events_side,
+              incidence_years = paste(STUDY$incidence_years, collapse = " "), min_events_side = rule$min_events_side,
               min_dose_gap = STUDY$min_dose_gap, subgroup_flags = paste(sub_flags, collapse = " "),
               n_boot = n_boot, seed = STUDY$seed,
               code_md5 = code_checksum(code), r_version = R.version.string)

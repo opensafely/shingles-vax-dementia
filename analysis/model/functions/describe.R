@@ -22,8 +22,10 @@ data_checks <- function(d, nation, bin, study, rule) {
     "cov_int_age differs from the age derived from the birth date" = sum(d$cov_int_age != d$age_derived, na.rm = TRUE),
     "var_date_index differs from the derived index date" = sum(index_gap > 0, na.rm = TRUE),
     "var_date_index differs from the derived index date by more than 31 days" = sum(index_gap > 31, na.rm = TRUE),
-    "Dementia dated before the index date" = sum(d$out_date_dementia < d$index_date, na.rm = TRUE),
-    "HZ dated before the index date" = sum(d$out_date_hz < d$index_date, na.rm = TRUE),
+    "Dementia dated on or before day 30 after the index date (outcome dates start on day 31)" =
+      sum(d$out_date_dementia <= d$index_date + study$induction_days, na.rm = TRUE),
+    "HZ dated on or before day 30 after the index date (outcome dates start on day 31)" =
+      sum(d$out_date_hz <= d$index_date + study$induction_days, na.rm = TRUE),
     "First RZV dose before the index date (counted as vaccinated)" = sum(d$var_date_1vax_rzv < d$index_date, na.rm = TRUE),
     "First RZV dose before the earliest possible 65th birthday (1 September 2023 if ineligible)" =
       sum(d$var_date_1vax_rzv < earliest, na.rm = TRUE),
@@ -57,8 +59,8 @@ data_checks <- function(d, nation, bin, study, rule) {
 
 # Count records by calendar month to assess data completeness (SAP Table 3, "end of data availability").
 records_by_month <- function(d, nation, study, rule) {
-  vars <- c("dementia (first record on or after the index date)" = "out_date_dementia",
-            "HZ (first record on or after the index date)" = "out_date_hz", "death" = "var_date_death",
+  vars <- c("dementia (first record from day 31 after the index date)" = "out_date_dementia",
+            "HZ (first record from day 31 after the index date)" = "out_date_hz", "death" = "var_date_death",
             "deregistration" = "var_date_deregistered", "first RZV dose" = "var_date_1vax_rzv")
   months <- seq(first_of_month(study$nip_start), first_of_month(study$study_end), by = "month")
   do.call(rbind, lapply(names(vars), function(lab) {
@@ -100,9 +102,11 @@ comorbidity_count <- function(co, flags) {
 comorbidity_subgroup <- function(co, flags) COMORBIDITY_SUBGROUPS[pmin(comorbidity_number(co, flags), 2L) + 1L]
 
 # The flags that the subgroups count: those recorded for at least min_flag_share (0.1%) of the cohort and for
-# more than 7 adults. An empty or unfinished codelist would otherwise put every adult in the 0 group, and a
-# rarer condition, such as Huntington's disease at these ages, changes almost no adult's group. Leaving it
-# out in both nations keeps their subgroups the same, as pooling requires.
+# more adults than the disclosure threshold. An empty or unfinished codelist would otherwise put every adult in
+# the 0 group, and a rarer condition, such as Huntington's disease at these ages, changes almost no adult's
+# group. Leaving it out in both nations keeps their subgroups the same, as pooling requires. In a cohort of
+# more than 9000 adults the 0.1% share is the stricter condition, so the nations' different thresholds cannot
+# make their subgroups differ.
 subgroup_flags <- function(co, flags, study, rule) {
   n <- vapply(flags, function(v) sum(co[[v]] %in% TRUE), numeric(1))
   flags[n >= study$min_flag_share * nrow(co) & n > rule$redact_at_or_below]
@@ -158,8 +162,9 @@ summarise_group <- function(co, keep, vars) {
 }
 
 # Apply count suppression and rounding before calculating percentages. Percentages are of the whole group,
-# missing values included. Suppress a mean, SD, median or quartile that describes 7 or fewer adults, and
-# round the rest to 3 decimal places to limit disclosure risk (README, "National analysis", "Outputs").
+# missing values included. Suppress a mean, SD, median or quartile that describes no more adults than the
+# disclosure threshold, and round the rest to 3 decimal places to limit disclosure risk (README, "National
+# analysis", "Outputs").
 # Three places also keep the SMDs that baseline_smd() computes from the rounded means and SDs close to exact.
 baseline_table <- function(co, vars, nation, rule) {
   vars <- prepare_vars(co, vars, nation)
@@ -233,9 +238,8 @@ events_by_bin <- function(co, fu, nation, outcome, rule, model_rate = NULL) {
 }
 
 # Tabulate adults, events from day 31 and person-years by eligibility group within each bandwidth, with
-# crude rates per 1000 person-years. `early` holds the adults with the outcome on days 0 to 30, which the
-# analysis leaves out. Count them in events_days_0_30.
-events_summary <- function(co, fu, nation, outcome, study, rule, early = NULL) {
+# crude rates per 1000 person-years.
+events_summary <- function(co, fu, nation, outcome, study, rule) {
   parts <- list()
   for (w in names(study$bandwidths)) {
     inside <- in_bandwidth(co, study, study$bandwidths[[w]]) & fu$at_risk
@@ -243,16 +247,13 @@ events_summary <- function(co, fu, nation, outcome, study, rule, early = NULL) {
       keep <- inside & co$z == (g == "Eligible")
       parts[[length(parts) + 1]] <- data.frame(
         nation = nation, outcome = outcome, bandwidth = w, group = g,
-        n = sum(keep), events = sum(fu$event[keep]), person_years = sum(fu$time_days[keep]) / 365.25,
-        events_days_0_30 = if (is.null(early)) NA_real_ else
-          sum(in_bandwidth(early, study, study$bandwidths[[w]]) & early$z == (g == "Eligible")))
+        n = sum(keep), events = sum(fu$event[keep]), person_years = sum(fu$time_days[keep]) / 365.25)
     }
   }
   out <- do.call(rbind, parts)
   out$person_years <- sdc_stat(round(out$person_years), out$n, rule)
   out$n <- sdc_count(out$n, rule)
   out$events <- sdc_count(out$events, rule)
-  out$events_days_0_30 <- sdc_count(out$events_days_0_30, rule)
   out$rate_per_1000py <- ifelse(out$person_years > 0, 1000 * out$events / out$person_years, NA_real_)   # from the released (rounded) counts
   out
 }

@@ -8,7 +8,7 @@ STUDY <- list(
   nip_start       = as.Date("2023-09-01"),  # index date for ineligible adults
   age_date        = as.Date("2023-08-31"),  # date for the cov_int_age check and the baseline table's age
   study_end       = as.Date("2026-08-31"),  # administrative study end
-  induction_days  = 30L,                    # dementia on days 0 to 30 excludes the adult, HZ only from the HZ analysis
+  induction_days  = 30L,                    # follow-up starts on day 31 (SAP Table 3), and dementia up to day 30 excludes the adult
   bandwidths      = c("2" = 2, "1.5" = 1.5, "1" = 1),  # analysis bandwidths: years on either side of the cutoff
   primary_bandwidth = "2",
   outcomes        = c(dementia = "out_date_dementia", hz = "out_date_hz"),
@@ -19,11 +19,7 @@ STUDY <- list(
   max_boot_failed = 0.05,                   # CIs and SEs left missing above this share of failed samples
   seed            = 20261005L,
   min_dose_gap    = 28L,                    # days: a second RZV dose recorded sooner after the first is not counted
-  min_flag_share  = 0.001,                  # comorbidity flags rarer than this define no subgroup (subgroup_flags())
-  # Minimum events on each side of the cutoff for a national Weibull fit (bootstrap refits need 1), and minimum
-  # adults with and without receipt on each side within delta's bandwidth for releasing the fitted uptakes. It
-  # is one more than the disclosure threshold (SDC_DEFAULT), so that no released estimate rests on 7 or fewer.
-  min_events_side = 8L
+  min_flag_share  = 0.001                   # comorbidity flags rarer than this define no subgroup (subgroup_flags())
 )
 
 # The estimates of delta, the uptake discontinuity, each a regression of receipt by the end of follow-up on
@@ -38,16 +34,26 @@ DELTAS <- list(
   two_doses = list(receipt = "two_doses_by_end", p = 1L, bandwidth = "mserd")
 )
 
-# Primary disclosure control: suppress counts of 7 or fewer and statistics describing 7 or fewer people, and
-# round larger counts to the nearest 5. Secondary disclosure, from combining released figures, is checked in
-# each SDE's output review.
-SDC_DEFAULT <- list(redact_at_or_below = 7L, round_to = 5L)
+# Primary disclosure control follows each SDE's own output rules. Counts at or below redact_at_or_below are
+# withheld, as are statistics describing that many people or fewer, and larger counts are rounded to the nearest
+# 5. OpenSAFELY withholds counts of 7 or fewer. SAIL's output policy (SAIL-POL-024 v1.7, June 2025) allows no
+# count below 10, so Wales withholds counts of 9 or fewer. Rounding and every other step are the same in both
+# nations (SAP 7). min_events_side, one more than the threshold, is the minimum number of events on each side
+# of the cutoff for a national Weibull fit (bootstrap refits need 1), and of adults with and without receipt on
+# each side within delta's bandwidth for releasing the fitted uptakes, so that no released estimate rests on
+# that many people or fewer. The threshold decides only what is released, not how anything is estimated.
+# Secondary disclosure, from combining released figures, is checked in each SDE's output review.
+sdc_rule <- function(redact_at_or_below, round_to = 5L) {
+  list(redact_at_or_below = redact_at_or_below, round_to = round_to, min_events_side = redact_at_or_below + 1L)
+}
+SDC_OPENSAFELY <- sdc_rule(7L)
+SDC_SAIL <- sdc_rule(9L)
 
 # data_end is the last date with complete linked data in each SDE. Follow-up ends by the earlier of data_end
 # and study_end. Confirm data_end before the real analysis. run_nation.R --data-end sets it for one run.
 NATIONS <- list(
-  England = list(tre = "OpenSAFELY-TPP", bin = "month", data_end = as.Date("2026-08-31"), sdc = SDC_DEFAULT),
-  Wales   = list(tre = "SAIL Databank",  bin = "week",  data_end = as.Date("2026-08-31"), sdc = SDC_DEFAULT)
+  England = list(tre = "OpenSAFELY-TPP", bin = "month", data_end = as.Date("2026-08-31"), sdc = SDC_OPENSAFELY),
+  Wales   = list(tre = "SAIL Databank",  bin = "week",  data_end = as.Date("2026-08-31"), sdc = SDC_SAIL)
 )
 
 # Baseline variables for the 3-year analysis (SAP Table 6).
