@@ -1,0 +1,339 @@
+code,term
+103081004,Immunodeficiency secondary to chemotherapy
+109256003,Mucositis following chemotherapy
+110264005,Effects of chemotherapy
+1141994004,"Rituximab, cyclophosphamide, etoposide, vincristine, prednisone antineoplastic chemotherapy regimen"
+1148692008,Radiation therapy following chemotherapy
+1167461000000101,Intra-arterial injection of antineoplastic agent into left ophthalmic artery using fluoroscopic guidance with contrast
+1167471000000108,Intra-arterial injection of antineoplastic agent into right ophthalmic artery using fluoroscopic guidance with contrast
+1167481000000105,Intra-arterial injection of antineoplastic agent into bilateral ophthalmic arteries using fluoroscopic guidance with contrast
+1172516002,High-dose chemotherapy with stem cell transplant
+118791000119106,Aplastic anemia caused by antineoplastic agent
+118911000119104,Long-term current use of lenalidomide
+1197521004,Inflammation of mucous membrane due to and following chemotherapy
+1197527000,Ulcerative inflammation of oral mucous membrane due to and following administration of antineoplastic agent
+12149006,"Chemotherapy administration, subcutaneous, with local anesthesia"
+1217525002,Injection of antineoplastic agent into neoplasm of brain tissue
+125211000119106,History of antineoplastic chemotherapy
+1254741007,Intensification antineoplastic therapy regimen
+1254742000,Delayed intensification antineoplastic therapy regimen
+1255831008,Chemotherapy for malignant neoplastic disease using targeted agent
+1255834000,Administration of antineoplastic chemotherapy into peritoneal cavity
+1255904006,Administration of palliative antineoplastic agent
+1259200004,Neoadjuvant antineoplastic chemotherapy
+1264382006,Follow-up for combined therapy of radiation therapy and chemotherapy
+1264383001,Follow-up for combined therapy of surgery and chemotherapy
+1264385008,"Follow-up for combined therapy of surgery, radiation therapy, and chemotherapy"
+1279827005,Neoadjuvant antineoplastic therapy procedure prior to surgery
+1287761004,Arsenic therapy
+1287762006,Arsenic compound therapy
+1290226008,Administration of antineoplastic agent via intravenous route
+1290228009,Administration of antineoplastic agent via subcutaneous route
+129663002,Neurotoxicity caused by vincristine
+129665009,Neurotoxicity caused by L-asparaginase
+1362501000000105,Laparoscopic administration of pressurised aerosol antineoplastic agent into peritoneal cavity
+136281000119109,Anemia caused by antineoplastic agent
+138918002,H/O: chemotherapy
+146562008,External beam - surgery with chemotherapy
+146563003,External beam with chemotherapy
+146623009,Radiomimetic chemotherapy
+146624003,Radiochemotherapy: local infiltration
+146625002,Radiochemotherapy: to stop spread
+146626001,Radiochemotherapy: oral route
+146627005,Radiochemotherapy: IV route
+146628000,Radiochemotherapy: for immunosuppression
+146629008,Radiochemotherapy: local artery
+146630003,Radiochemotherapy: into cavity
+146631004,Radiochemotherapy NOS
+147696002,Prophylactic chemotherapy
+147704001,Prophylactic chemotherapy NOS
+14836003,Radiation recall syndrome
+150415003,Chemotherapy
+150466008,Intravenous chemotherapy
+151250002,Oral chemotherapy (& cytotoxic)
+151261005,Ambulatory chemotherapy
+151608008,Convalescence after chemotherapy
+151882008,Chemotherapy follow-up
+161653008,History of chemotherapy
+169335009,External beam radiotherapy with surgery and chemotherapy
+169336005,External beam radiation therapy with chemotherapy
+169396008,Radiomimetic chemotherapy
+169397004,Radiochemotherapy by local infiltration
+169398009,Radiochemotherapy: to stop spread
+169399001,Radiochemotherapy via oral route
+169400008,Radiochemotherapy via intravenous route
+169401007,Radiochemotherapy for immunosuppression
+169402000,Intraarterial radiochemotherapy
+169403005,Intracavitary radiochemotherapy
+169404004,Radiochemotherapy NOS
+170445004,Prophylaxis: [chemotherapy] or [drug]
+170452002,Prophylactic chemotherapy NOS
+171765004,Intrathecal injection of chemotherapeutic agent
+180180003,Continuous infusion of chemotherapy
+180222003,Intravenous therapy: [chemo-] or [drug]
+180243002,Intramuscular therapy: [chemo-] or [drug]
+182967006,Oral chemotherapy (& cytotoxic)
+182973007,Chemotherapy
+182974001,Cancer chemotherapy
+182983006,Ambulatory chemotherapy
+183373009,Convalescence after chemotherapy
+183651009,Chemotherapy follow-up
+18846006,Chemotherapy-induced nausea and vomiting
+198551000000104,Chemotherapy started
+212511004,Antineoplastic antibiotic poisoning NOS
+213871000000100,Chemotherapy started
+213881000000103,Chemotherapy started
+218326006,Adverse reaction caused by antineoplastic antibiotics
+218327002,Adverse reaction to actinomycin D
+218328007,Adverse reaction to bleomycin
+218329004,Adverse reaction to doxorubicin hydrochloride
+218330009,Adverse reaction to mitomycin
+218331008,Adverse reaction to plicamycin
+218333006,Adverse reaction to antineoplastic antibiotics NOS
+218505007,Adverse reaction to busulfan
+218506008,Adverse reaction to carmustine
+218507004,Adverse reaction to chlorambucil
+218508009,Adverse reaction to cyclophosphamide
+218509001,Adverse reaction to estramustine phosphate
+218510006,Adverse reaction to lomustine
+218511005,Adverse reaction to melphalan
+218512003,Adverse reaction to mustine hydrochloride
+218513008,Adverse reaction to thiotepa
+218515001,Adverse reaction to cytarabine
+218517009,Adverse reaction to mercaptopurine
+218519007,Adverse reaction to thioguanine
+218520001,Adverse reaction to etoposide
+218521002,Adverse reaction to vinblastine sulfate
+218522009,Adverse reaction to vincristine sulfate
+218523004,Adverse reaction to carboplatin
+218524005,Adverse reaction to cisplatin
+218525006,Adverse reaction to hydroxyurea
+218526007,Adverse reaction to mitozantrone
+218527003,Adverse reaction to procarbazine
+218528008,Adverse reaction to razoxane
+222985009,[X]Antineoplastic antimetabolites causing adverse effects in therapeutic use
+222986005,[X]Antineoplastic natural products causing adverse effects in therapeutic use
+222987001,[X]Other antineoplastic drugs causing adverse effects in therapeutic use
+22733003,Chemotherapy for non-malignant neoplasm
+230857009,Injection of chemotherapeutic substance into subcutaneous reservoir
+232681000000103,Chemotherapy delivery
+235331000000103,Delivery of oral chemotherapy for neoplasm
+235391000000102,Delivery of chemotherapy for neoplasm
+236084000,Chemotherapy sickness
+238519000,Photochemotherapy reaction
+238811000000106,Delivery of oral chemotherapy for neoplasm NOS
+238831000000103,Delivery of exclusively oral chemotherapy for neoplasm
+238841000000107,Delivery of complex chemotherapy for neoplasm including prolonged infusional treatment at first attendance
+238851000000105,Delivery of complex parenteral chemotherapy for neoplasm at first attendance
+238861000000108,Delivery of simple parenteral chemotherapy for neoplasm at first attendance
+238871000000101,Delivery of chemotherapy for neoplasm NOS
+239071000000100,Delivery of subsequent element of cycle of chemotherapy for neoplasm
+239081000000103,Other specified delivery of chemotherapy for neoplasm
+239091000000101,Other specified delivery of oral chemotherapy for neoplasm
+240251000000107,Problems following chemotherapy
+243571000000108,Symptoms due to chemotherapy
+262502001,Post-chemotherapy
+265760000,Intravenous chemotherapy
+265761001,Intramuscular chemotherapy
+265762008,Subcutaneous chemotherapy
+266719004,Oral chemotherapy
+267901000000108,Delivery of chemotherapy for neoplasm 
+267911000000105,Delivery of complex chemotherapy for neoplasm including prolonged infusional treatment at first attendance 
+267921000000104,Delivery of complex parenteral chemotherapy for neoplasm at first attendance 
+267931000000102,Delivery of simple parenteral chemotherapy for neoplasm at first attendance 
+267941000000106,Delivery of subsequent element of cycle of chemotherapy for neoplasm 
+267951000000109,Other specified delivery of chemotherapy for neoplasm 
+267961000000107,Delivery of chemotherapy for neoplasm NOS 
+267971000000100,Delivery of oral chemotherapy for neoplasm 
+267981000000103,Delivery of exclusively oral chemotherapy for neoplasm 
+267991000000101,Other specified delivery of oral chemotherapy for neoplasm 
+268001000000105,Delivery of oral chemotherapy for neoplasm NOS 
+268500004,Administration of prophylactic chemotherapy
+288108006,Cytotoxic drug therapy NOS
+290631006,Triazene antineoplastic poisoning
+292190002,Aldesleukin adverse reaction
+292196008,Antineoplastic adverse reaction
+292197004,Alkylating drug adverse reaction
+292198009,Mitobronitol adverse reaction
+292199001,Busulfan adverse reaction
+292200003,Treosulfan adverse reaction
+292201004,Thiotepa adverse reaction
+292202006,Nitrogen mustard derivative adverse reaction
+292203001,Chlorambucil adverse reaction
+292204007,Cyclophosphamide adverse reaction
+292205008,Ethoglucid adverse reaction
+292206009,Ifosfamide adverse reaction
+292207000,Melphalan adverse reaction
+292208005,Estramustine adverse reaction
+292209002,Mustine adverse reaction
+292210007,Nitrosurea adverse reaction
+292212004,Carmustine adverse reaction
+292213009,Lomustine adverse reaction
+292214003,Triazene antineoplastic adverse reaction
+292215002,Dacarbazine adverse reaction
+292216001,Cytotoxic antibiotic adverse reaction
+292217005,Dactinomycin adverse reaction
+292218000,Bleomycin adverse reaction
+292220002,Mitomycin adverse reaction
+292221003,Plicamycin adverse reaction
+292222005,Aclarubicin adverse reaction
+292223000,Mitozantrone adverse reaction
+292224006,Doxorubicin adverse reaction
+292225007,Epirubicin adverse reaction
+292226008,Idarubicin adverse reaction
+292230006,Mercaptopurine adverse reaction
+292231005,Thioguanine adverse reaction
+292232003,Pentostatin adverse reaction
+292233008,Cytarabine adverse reaction
+292235001,Etoposide adverse reaction
+292236000,Amsacrine adverse reaction
+292237009,Carboplatin adverse reaction
+292238004,Cisplatin adverse reaction
+292239007,Hydroxyurea adverse reaction
+292240009,Procarbazine adverse reaction
+292241008,Razoxane adverse reaction
+292242001,Crisantaspase adverse reaction
+292243006,Paclitaxel adverse reaction
+292244000,Fludarabine adverse reaction
+292245004,Aminoglutethimide adverse reaction
+292250005,Vinca alkaloid adverse reaction
+292251009,Vinblastine adverse reaction
+292252002,Vincristine adverse reaction
+292253007,Vindesine adverse reaction
+292838008,Interferon-A-2b adverse reaction
+29391003,Chemotherapy administration into peritoneal cavity requiring paracentesis
+295653006,Triazene antineoplastic overdose
+309698005,Continuous infusion of chemotherapy
+315601005,Ambulatory chemotherapy
+315725008,[V]Other prophylactic chemotherapy
+316331002,[V]Maintenance chemotherapy
+316338008,[V]Chemotherapy session for neoplasm
+316440004,[V]Convalescence after chemotherapy
+316449003,[V]Chemotherapy follow-up
+316455008,[V]Follow-up examination after chemotherapy for malignant neoplasm
+316474000,[V]Follow-up examination after chemotherapy for other conditions
+31652009,Intracavitary chemotherapy for malignant neoplasm
+316718009,[X]Follow-up examination after chemotherapy for other conditions
+316783006,[X]Other chemotherapy
+328301000119102,Pancytopenia due to antineoplastic chemotherapy
+350691000119103,Agranulocytosis due to and following administration of antineoplastic agent
+363688001,Administration of antineoplastic agent
+367336001,Chemotherapy
+38216008,Infusion chemotherapy for malignant neoplasm
+393096004,Pre-operative chemotherapy
+393097008,Post-operartive chemotherapy
+393098003,Combined pre-operative chemotherapy and radiotherapy
+393099006,Combined post-operative chemotherapy and radiotherapy
+394047001,Pre-operative chemotherapy
+394048006,Post-operartive chemotherapy
+394049003,Combined pre-operative chemotherapy and radiotherapy
+394050003,Combined post-operative chemotherapy and radiotherapy
+394101000000106,[X]Antineoplastic antimetabolites causing adverse effects in therapeutic use
+394894008,Pre-operative chemotherapy
+394895009,Postoperative chemotherapy
+394900008,Administration of cancer treatment
+394934009,Combined preoperative chemotherapy and radiotherapy
+394935005,Combined postoperative chemotherapy and radiotherapy
+396780003,Chemotherapy AND/OR radiation therapy prior to lymphadenectomy
+399213007,Toxicity due to chemotherapy
+400001000004103,Neoadjuvant antineoplastic therapy
+402752000,Dermatosis due to cytotoxic therapy
+403637008,Cutaneous inflammation due to cytotoxic therapy
+403638003,Acral erythema due to cytotoxic therapy
+403639006,Syringosquamous metaplasia due to cytotoxic therapy
+403640008,Neutrophilic eccrine hidradenitis due to cytotoxic therapy
+403641007,Pseudoscleroderma due to cytotoxic therapy
+403642000,Ulcer of skin due to cytotoxic therapy
+403644004,Radiation recall reaction due to cytotoxic therapy
+403645003,Ultraviolet recall reaction due to cytotoxic therapy
+406221000000107,[X]Antineoplastic natural products causing adverse effects in therapeutic use
+409760003,Status of histological necrosis after induction chemotherapy
+409761004,Histological necrosis absent after induction chemotherapy
+409762006,Histological necrosis present after induction chemotherapy
+409763001,Histological necrosis after induction chemotherapy cannot be determined
+409764007,Percentage of histological necrosis after induction chemotherapy
+4114003,Parenteral chemotherapy for malignant neoplasm
+413771000000109,[V]Follow-up examination after chemotherapy for malignant neoplasm
+423661009,Complication of chemotherapy
+425229001,Chemotherapy-induced neutropenia
+427069009,Azoospermia due to chemotherapy AND/OR radiation
+428221000000101,[V]Convalescence after chemotherapy
+428501000000108,[V]Chemotherapy session for neoplasm
+429564000,Anemia caused by chemotherapy
+430328004,Inflammation of esophagus due to chemotherapy
+441858005,Adverse reaction caused by trastuzumab administered by infusion
+442108004,Adverse reaction caused by rituximab administered by infusion
+442760001,Thrombophilia due to antineoplastic agent therapy
+446468007,Cellular atypia caused by antineoplastic agent
+447171000000108,[X]Other antineoplastic drugs causing adverse effects in therapeutic use
+450827009,Induction chemotherapy
+451691000000109,[V]Other prophylactic chemotherapy
+452971000000105,[V]Chemotherapy follow-up
+453671000000106,[V]Follow-up examination after chemotherapy for other conditions
+45747003,Poisoning caused by antineoplastic antibiotic
+465401000000105,[X]Need for other prophylactic chemotherapy
+468111000000107,[X]Other chemotherapy
+469981000000107,[V]Maintenance chemotherapy
+479871000000108,[X]Follow-up examination after chemotherapy for other conditions
+50050121000188109,Arsenic and/or arsenic compound therapy
+51534007,Oral chemotherapy for malignant neoplasm
+52166007,Pleurodesis with cancer chemotherapy substance
+53523003,Poisoning caused by cactinomycin
+545141000000103,Prophylactic chemotherapy NOS
+562601000000107,Radiochemotherapy NOS
+671071000000100,Adverse reaction to antineoplastic antibiotics NOS
+675231000000108,Cytotoxic drug therapy NOS
+68619000,Chemotherapy for non-neoplastic disease
+6872008,Perfusion chemotherapy for malignant neoplasm
+69960004,Antineoplastic chemotherapy regimen
+700496000,Postoperative administration of antineoplastic agent into peritoneal cavity
+700504007,Post-chemotherapy monitoring
+703423002,Combined chemotherapy and radiation therapy
+70446004,Chemotherapy administration into pleural cavity requiring thoracentesis
+707088000,Peripheral neuropathy due to chemotherapy
+716872004,Antineoplastic chemotherapy regimen
+720379009,Hepatic arterial infusion chemotherapy
+720469008,Azoospermia caused by chemotherapy
+722472009,"Rituximab, ifosfamide, carboplatin and etoposide chemotherapy regimen"
+722480002,Chemotherapy started
+722482005,"Doxorubicin, bleomycin, vinblastine and dacarbazine chemotherapy regimen"
+722491009,"Rituximab, cyclophosphamide, doxorubicin, vincristine and prednisone chemotherapy regimen"
+725054001,Chemotherapy-induced change
+725056004,Reactive cellular changes associated with chemotherapy
+726600009,Lenalidomide therapy
+762315004,Therapy related acute myeloid leukemia due to and following administration of antineoplastic agent
+762595001,Chronic painful polyneuropathy following chemotherapy
+766045006,Acute myeloid leukemia and myelodysplastic syndrome related to alkylating agent
+767657005,Anemia due to and following chemotherapy
+767658000,Neutropenia due to and following chemotherapy
+767659008,Peripheral neuropathy due to and following antineoplastic therapy
+773537001,Differentiation syndrome due to and following chemotherapy co-occurrent with acute promyelocytic leukemia
+77738002,Local chemotherapy for malignant neoplasm
+784317004,Fatigue due to chemotherapy
+803941000000109,Induction chemotherapy
+816151001,Administration of consolidation antineoplastic agent
+819971000000103,Hyperthermic intraoperative peritoneal chemotherapy
+829591000000101,Neoadjuvant chemotherapy
+830155008,Administration of hyperthermic antineoplastic agent into peritoneal cavity
+830156009,Administration of hyperthermic antineoplastic agent into thoracic cavity
+833041000000100,H/O: chemotherapy
+834441000000106,Neoadjuvant chemotherapy
+840431000000109,Acute renal failure induced by cisplatin
+843671000000104,Electrochemotherapy
+847541000000102,Intra-arterial infusion of antineoplastic agent using fluoroscopic guidance with contrast
+847581000000105,Intra-arterial injection of antineoplastic agent into ophthalmic artery using fluoroscopic guidance with contrast
+847641000000103,Infusion of antineoplastic agent into cerebral artery using fluoroscopic guidance with contrast
+857171000000101,Electrochemotherapy
+86036005,Intravenous chemotherapy administration by push technique
+862921000000106,Intravesical electrochemotherapy
+870249004,"Folinic acid, fluorouracil and irinotecan antineoplastic chemotherapy regimen"
+870250004,"Fluorouracil, leucovorin, irinotecan and oxaliplatin antineoplastic chemotherapy regimen"
+871775006,Adverse reaction to triazene
+871783000,Adverse reaction to arsenic and/or arsenic compound
+87776000,Intra-arterial infusion of antineoplastic agent
+882661000000108,Postoperative intraperitoneal chemotherapy
+883511000000103,Post-chemotherapy monitoring
+890093004,Administration of multiple antineoplastic agents
+897713009,Antineoplastic chemoimmunotherapy
+97201000119101,Fatigue due to chemotherapy or radiation therapy
+98901000119106,Ulcerative mucositis due to non-antineoplastic therapy

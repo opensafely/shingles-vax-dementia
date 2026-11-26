@@ -1,3 +1,136 @@
 {
-  "files": {}
+  "files": {
+    "opensafely-ethnicity-snomed-0removed.csv": {
+      "id": "opensafely/ethnicity-snomed-0removed/22911876",
+      "url": "https://www.opencodelists.org/codelist/opensafely/ethnicity-snomed-0removed/22911876/",
+      "downloaded_at": "2026-10-01 14:05:41.892783+00:00Z",
+      "sha": "d95a2f826299563aa57f6fa99009e6e13a65151b"
+    },
+    "user-sw-gsk-shingles-vaccination-snomed.csv": {
+      "id": "user/sw/gsk-shingles-vaccination-snomed/230e2652",
+      "url": "https://www.opencodelists.org/codelist/user/sw/gsk-shingles-vaccination-snomed/230e2652/",
+      "downloaded_at": "2026-11-20 16:48:51.424148+00:00Z",
+      "sha": "c3ad1e095fda7375e14e1b60bd1bf8a3eca69d15"
+    },
+    "user-sw-gsk-immunocompromised-leukaemia-lymphoma.csv": {
+      "id": "user/sw/gsk-immunocompromised-leukaemia-lymphoma/25039bb6",
+      "url": "https://www.opencodelists.org/codelist/user/sw/gsk-immunocompromised-leukaemia-lymphoma/25039bb6/",
+      "downloaded_at": "2026-11-12 16:08:39.485872+00:00Z",
+      "sha": "04148396fb3b3dc7859c3eea02423db05965853f"
+    },
+    "user-sw-gsk-immunocompromised-lymphoproliferative-disorders.csv": {
+      "id": "user/sw/gsk-immunocompromised-lymphoproliferative-disorders/281500f5",
+      "url": "https://www.opencodelists.org/codelist/user/sw/gsk-immunocompromised-lymphoproliferative-disorders/281500f5/",
+      "downloaded_at": "2026-11-12 16:08:39.614086+00:00Z",
+      "sha": "464d5a74ca1c14e85814ec983700fdd7f8f1a691"
+    },
+    "user-sw-gsk-immunocompromised-hiv-aids.csv": {
+      "id": "user/sw/gsk-immunocompromised-hiv-aids/0bf42881",
+      "url": "https://www.opencodelists.org/codelist/user/sw/gsk-immunocompromised-hiv-aids/0bf42881/",
+      "downloaded_at": "2026-11-12 16:08:39.761974+00:00Z",
+      "sha": "27750f80a2767463f6c35a77418f2771299d88f9"
+    },
+    "user-sw-gsk-immunocompromised-functional-lymphocyte-disorder.csv": {
+      "id": "user/sw/gsk-immunocompromised-functional-lymphocyte-disorder/1bbc99ff",
+      "url": "https://www.opencodelists.org/codelist/user/sw/gsk-immunocompromised-functional-lymphocyte-disorder/1bbc99ff/",
+      "downloaded_at": "2026-11-17 16:29:23.518261+00:00Z",
+      "sha": "f11c4075be2ff32aae4d8cdfa14c74cae719a919"
+    },
+    "user-sw-gsk-immunocompromised-stem-cell-therapy.csv": {
+      "id": "user/sw/gsk-immunocompromised-stem-cell-therapy/27b65bac",
+      "url": "https://www.opencodelists.org/codelist/user/sw/gsk-immunocompromised-stem-cell-therapy/27b65bac/",
+      "downloaded_at": "2026-11-12 16:08:39.867323+00:00Z",
+      "sha": "0a481216e06320dfb761387b125b96c4578874f5"
+    },
+    "user-sw-gsk-immunocompromised-gvhd.csv": {
+      "id": "user/sw/gsk-immunocompromised-gvhd/72e4b54b",
+      "url": "https://www.opencodelists.org/codelist/user/sw/gsk-immunocompromised-gvhd/72e4b54b/",
+      "downloaded_at": "2026-11-17 16:29:24.027232+00:00Z",
+      "sha": "bb4d589586aebbcd3f2376cca2ddf5363ba06d26"
+    },
+    "user-sw-gsk-immunocompromised-chemotherapy.csv": {
+      "id": "user/sw/gsk-immunocompromised-chemotherapy/5ce6a755",
+      "url": "https://www.opencodelists.org/codelist/user/sw/gsk-immunocompromised-chemotherapy/5ce6a755/",
+      "downloaded_at": "2026-11-12 16:08:40.020384+00:00Z",
+      "sha": "dad6b1f9a2093a7ca8d25cac24976ac813a9d2f1"
+    },
+    "user-sw-gsk-immunocompromised-radiotherapy.csv": {
+      "id": "user/sw/gsk-immunocompromised-radiotherapy/40c5cee1",
+      "url": "https://www.opencodelists.org/codelist/user/sw/gsk-immunocompromised-radiotherapy/40c5cee1/",
+      "downloaded_at": "2026-11-12 16:08:40.195256+00:00Z",
+      "sha": "767976402eb8a22001b642ce44233b262e289a79"
+    },
+    "user-sw-gsk-immunocompromised-solid-organ-transplant.csv": {
+      "id": "user/sw/gsk-immunocompromised-solid-organ-transplant/59d54216",
+      "url": "https://www.opencodelists.org/codelist/user/sw/gsk-immunocompromised-solid-organ-transplant/59d54216/",
+      "downloaded_at": "2026-11-12 16:08:40.349279+00:00Z",
+      "sha": "214830684820cb53a599ca2b4b3f2a07ad44983f"
+    },
+    "user-sw-gsk-immunocompromised-medication.csv": {
+      "id": "user/sw/gsk-immunocompromised-medication/1159a86d",
+      "url": "https://www.opencodelists.org/codelist/user/sw/gsk-immunocompromised-medication/1159a86d/",
+      "downloaded_at": "2026-11-17 16:29:24.723333+00:00Z",
+      "sha": "646b0d704d1514f3b587a9e872d85a6424ba6683"
+    },
+    "user-sw-gsk-prev-dementia-icd.csv": {
+      "id": "user/sw/gsk-prev-dementia-icd/6b89bffb",
+      "url": "https://www.opencodelists.org/codelist/user/sw/gsk-prev-dementia-icd/6b89bffb/",
+      "downloaded_at": "2026-11-19 17:58:17.806974+00:00Z",
+      "sha": "ca338e40f4bf19ebc9c7af9293f5e15d1ca6f5b3"
+    },
+    "user-sw-gsk-prev-dementia-snomed.csv": {
+      "id": "user/sw/gsk-prev-dementia-snomed/70ef3fe7",
+      "url": "https://www.opencodelists.org/codelist/user/sw/gsk-prev-dementia-snomed/70ef3fe7/",
+      "downloaded_at": "2026-11-20 16:48:53.033382+00:00Z",
+      "sha": "0dd24ecc97f3390de21cfe72bd0cafc9988a8e89"
+    },
+    "user-sw-gsk-outcome-dementia-icd.csv": {
+      "id": "user/sw/gsk-outcome-dementia-icd/396ad991",
+      "url": "https://www.opencodelists.org/codelist/user/sw/gsk-outcome-dementia-icd/396ad991/",
+      "downloaded_at": "2026-11-19 17:58:18.082484+00:00Z",
+      "sha": "9de733289c119868ce904d33cb19c5afe909435e"
+    },
+    "user-sw-gsk-outcome-dementia-snomed.csv": {
+      "id": "user/sw/gsk-outcome-dementia-snomed/57dfccb2",
+      "url": "https://www.opencodelists.org/codelist/user/sw/gsk-outcome-dementia-snomed/57dfccb2/",
+      "downloaded_at": "2026-11-20 16:48:53.315533+00:00Z",
+      "sha": "d03d10612b9b84eec15db31c6ea00d805978eb1b"
+    },
+    "user-sw-gsk-prev-dementia-dmd.csv": {
+      "id": "user/sw/gsk-prev-dementia-dmd/074bf327",
+      "url": "https://www.opencodelists.org/codelist/user/sw/gsk-prev-dementia-dmd/074bf327/",
+      "downloaded_at": "2026-11-19 17:58:18.352929+00:00Z",
+      "sha": "500a01fcadf9d4225f66d02cfeccc86770037239"
+    },
+    "user-sw-gsk-outcome-herpes-zoster-infection-snomed.csv": {
+      "id": "user/sw/gsk-outcome-herpes-zoster-infection-snomed/34cc0d34",
+      "url": "https://www.opencodelists.org/codelist/user/sw/gsk-outcome-herpes-zoster-infection-snomed/34cc0d34/",
+      "downloaded_at": "2026-11-17 16:29:26.271728+00:00Z",
+      "sha": "9b6870617cd843006efddbfedaa3c38e206a2372"
+    },
+    "user-sw-gsk-outcome-herpes-zoster-infection-icd.csv": {
+      "id": "user/sw/gsk-outcome-herpes-zoster-infection-icd/09feb31d",
+      "url": "https://www.opencodelists.org/codelist/user/sw/gsk-outcome-herpes-zoster-infection-icd/09feb31d/",
+      "downloaded_at": "2026-11-20 16:48:53.640830+00:00Z",
+      "sha": "3185ed65ef938d1c6999ecf644cb2b3ee7ff0310"
+    },
+    "user-sw-gsk-immunocompromised-solid-organ-transplant-opcs4.csv": {
+      "id": "user/sw/gsk-immunocompromised-solid-organ-transplant-opcs4/0cb17313",
+      "url": "https://www.opencodelists.org/codelist/user/sw/gsk-immunocompromised-solid-organ-transplant-opcs4/0cb17313/",
+      "downloaded_at": "2026-11-20 16:48:53.748282+00:00Z",
+      "sha": "ae1a23152b972cb9ec8055ce398798a538d944b7"
+    },
+    "user-sw-gsk-immunocompromised-stem-cell-therapy-opcs4.csv": {
+      "id": "user/sw/gsk-immunocompromised-stem-cell-therapy-opcs4/25c0e648",
+      "url": "https://www.opencodelists.org/codelist/user/sw/gsk-immunocompromised-stem-cell-therapy-opcs4/25c0e648/",
+      "downloaded_at": "2026-11-20 16:48:53.854240+00:00Z",
+      "sha": "af34de16632803cc92c6fa7604c764b356c87dad"
+    },
+    "user-sw-gsk-immunocompromised-chemotherapy-radiotherapy-opcs4.csv": {
+      "id": "user/sw/gsk-immunocompromised-chemotherapy-radiotherapy-opcs4/73a1ffdd",
+      "url": "https://www.opencodelists.org/codelist/user/sw/gsk-immunocompromised-chemotherapy-radiotherapy-opcs4/73a1ffdd/",
+      "downloaded_at": "2026-11-20 16:48:53.959908+00:00Z",
+      "sha": "a34398c8e64af95f3813a399b8865282932cc7bd"
+    }
+  }
 }
