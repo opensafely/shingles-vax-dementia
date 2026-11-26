@@ -37,8 +37,8 @@ dataset.cov_int_age = (date(2023,8,31) - dataset.var_date_birth).years
 
 dataset.var_date_index = case(
     when(dataset.cov_int_age.is_in([65,66])).then(date(2023,9,1)),
-    when(dataset.cov_int_age.is_in([63])).then(dataset.var_date_birth + years(2)),
-    when(dataset.cov_int_age.is_in([64])).then(dataset.var_date_birth + years(1)),
+    when(dataset.cov_int_age.is_in([63])).then(dataset.var_date_birth + years(65)),
+    when(dataset.cov_int_age.is_in([64])).then(dataset.var_date_birth + years(65)),
     otherwise = None
     )
 
@@ -121,7 +121,7 @@ dataset.pre_rate_gpvisit = service_usage_before(dataset.var_date_index, maximum_
 dataset.var_date_1vax_rzv = first_matching_vax_between(shinglesvax_inci_names, fu_end_date, dataset.var_date_death, start_date=dataset.var_date_index)
 
 # 2rd rzv vax
-dataset.var_date_2vax_rzv = first_matching_vax_between(shinglesvax_inci_names, fu_end_date, dataset.var_date_death, start_date=dataset.var_date_index+days(1))
+dataset.var_date_2vax_rzv = first_matching_vax_between(shinglesvax_inci_names, fu_end_date, dataset.var_date_death, start_date=dataset.var_date_1vax_rzv+days(1))
 
 dataset.define_population(patients.exists_for_patient())
 
